@@ -1,6 +1,7 @@
 import pygame
 from fish import *
 from constants import *
+from draw_function import background_surf
 
 
 def detect_collision(player_health):
@@ -19,5 +20,3 @@ def detect_collision(player_health):
                 exit()
 
     return player_health
-
-
