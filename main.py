@@ -27,9 +27,9 @@ def main_gameplay():
                 exit()
 
         if fish_timer > add_fish:
-            # Creating 3 stars
-            fish_generator(5)
-            # We start counting again for the next new stars
+           
+            fish_generator()
+           
             fish_timer = 0
 
         fish_movement()
