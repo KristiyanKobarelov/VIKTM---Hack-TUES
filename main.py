@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 
 def main():
     fish_timer = 0
-    player_health = 100
+    player_health = 7
     add_fish = 500
 
     while True:
