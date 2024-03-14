@@ -5,12 +5,12 @@ from constants import *
 from draw_function import *
 
 pygame.init()
-WINDOW = pygame.display.set_mode(WIDTH, HEIGHT)
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Secrets of the deep')
 
 clock = pygame.time.Clock()
 
-background_surf = pygame.Surface(WIDTH, HEIGHT)
+background_surf = pygame.Surface((WIDTH, HEIGHT))
 background_surf.fill(BACKGROUND_COLOR)
 
 
