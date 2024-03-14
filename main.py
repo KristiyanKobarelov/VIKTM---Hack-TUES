@@ -1,4 +1,3 @@
-from constants import *
 from draw_function import *
 from fish import *
 from sys import exit
