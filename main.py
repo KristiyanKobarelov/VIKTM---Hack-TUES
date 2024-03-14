@@ -10,6 +10,7 @@ pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
 
+
 # game_active = False
 # start_time = 0
 
@@ -27,9 +28,8 @@ def main_gameplay():
                 exit()
 
         if fish_timer > add_fish:
-           
             fish_generator()
-           
+
             fish_timer = 0
 
         fish_movement()
