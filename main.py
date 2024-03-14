@@ -29,7 +29,7 @@ def main():
 
         fish_movement()
 
-        # detect_collision()
+        detect_collision()
 
         draw(WINDOW)
 
