@@ -79,14 +79,17 @@ def draw(window, player_health, temp_x=0):
 def start_screen(window):
 
     start_surf = pygame.Surface((200, 60))
-    start_surf.fill('white')
+    start_surf.fill('black')
     start_rect = start_surf.get_rect(topleft = (WIDTH/2 - 200/2, HEIGHT - 360))
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
-    start_screen_surf.fill('black')
+    start_screen_surf.fill(BACKGROUND_COLOR)
 
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
+
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    WINDOW.blit(new_cursor, cursor_rect)
 
     pygame.display.update()
 
