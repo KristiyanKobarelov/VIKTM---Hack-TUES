@@ -76,21 +76,25 @@ def draw(window, player_health, temp_x=0):
     pygame.display.update()
 
 
-
 def start_screen(window):
 
     start_surf = pygame.Surface((200, 200))
     start_surf.fill('white')
-    start_rect = start_surf.get_rect(center = (WIDTH/2, HEIGHT/2))
+    start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
+<<<<<<< Updated upstream
     background_surf_2 = pygame.Surface((WIDTH, HEIGHT))
     background_surf_2.fill('black')
     window.blit(background_surf, (0, 0))
+=======
+    start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
+    start_screen_surf.fill('black')
+    window.blit(start_screen_surf, (0, 0))
+>>>>>>> Stashed changes
 
     window.blit(start_surf, start_rect)
 
     mouse_pos = pygame.mouse.get_pos()
-
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             return True
