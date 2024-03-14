@@ -20,7 +20,8 @@ HOSTILE_VEL = 2
 
 fishes_right = []
 fishes_left = []
-rainbow_fish = []
+special_fish_right = []
+special_fish_left = []
 
 BOAT_VEL = 7
 
