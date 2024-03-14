@@ -12,6 +12,9 @@ pygame.font.init()
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
 text_surf = text_font.render('Health: ', False, 'Black')
 
+start_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+start_text_surf = start_text.render('START', False, 'Black')
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -40,6 +43,7 @@ def draw(window, player_health, temp_x=0):
     for fish in fishes_right:
         fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
+    
 
     for hostile_fish in hostile_fishes_left:
         hostile_fish_surf = pygame.Surface((HOSTILE_WIDTH, HOSTILE_HEIGHT))
@@ -49,6 +53,16 @@ def draw(window, player_health, temp_x=0):
         hostile_fish_surf = pygame.Surface((HOSTILE_WIDTH, HOSTILE_HEIGHT))
         hostile_fish_surf.fill('red')
         window.blit(hostile_fish_surf, (hostile_fish.x, hostile_fish.y))
+
+    
+    for fish in special_fish_left:
+        fish_surf = pygame.Surface((fish.width, fish.height))
+        fish_surf.fill('yellow')
+        window.blit(fish_surf, (fish.x, fish.y))
+    for fish in special_fish_right:
+        fish_surf = pygame.Surface((fish.width, fish.height))
+        fish_surf.fill('yellow')
+        window.blit(fish_surf, (fish.x, fish.y))
 
     for i in range(player_health):
         if i == 0:
@@ -87,10 +101,10 @@ def draw(window, player_health, temp_x=0):
 
 
 def start_screen(window):
-
     start_surf = pygame.Surface((200, 60))
-    start_surf.fill('black')
-    start_rect = start_surf.get_rect(topleft = (WIDTH/2 - 200/2, HEIGHT - 360))
+
+    start_surf.fill('white')
+    start_rect = start_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 360))
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill(BACKGROUND_COLOR)
@@ -98,8 +112,8 @@ def start_screen(window):
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
 
-    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
-    WINDOW.blit(new_cursor, cursor_rect)
+    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH/2 - 65, HEIGHT - 347))
+    window.blit(start_text_surf, start_text_rect)
 
     pygame.display.update()
 

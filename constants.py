@@ -22,10 +22,12 @@ HOSTILE_WIDTH = 80
 HOSTILE_VEL = 2
 HOSTILE_RADIUS = 250
 
+fishes_right = []
+fishes_left = []
+special_fish_right = []
+special_fish_left = []
 hostile_fishes_right = []
 hostile_fishes_left = []
-
-rainbow_fish = []
 
 BOAT_VEL = 7
 
