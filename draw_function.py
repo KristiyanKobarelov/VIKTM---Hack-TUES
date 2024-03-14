@@ -1,4 +1,4 @@
-from constants import *
+from fish import *
 
 player_surf.fill('green')
 
@@ -10,4 +10,8 @@ def draw(window):
     # Draw everything on screen
     window.blit(background_surf, (0, 0))
     window.blit(player_surf, player_rect)
+    for fish in fishes_left:
+        window.blit(fish_surf, (fish.x, fish.y))
+    for fish in fishes_right:
+        window.blit(fish_surf, (fish.x, fish.y))
     pygame.display.update()

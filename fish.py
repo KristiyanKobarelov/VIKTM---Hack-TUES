@@ -2,8 +2,6 @@ import random
 import time
 from constants import *
 
-fishes = []
-
 
 def fish_generator(num_fishes):
     fish_y = random.randint(-HEIGHT//2, HEIGHT)
