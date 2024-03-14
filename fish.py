@@ -7,7 +7,7 @@ fishes = []
 
 
 def fish_generator(num_fishes):
-    fish_y = random.randint(HEIGHT, -HEIGHT//2)
+    fish_y = random.randint(-HEIGHT//2, HEIGHT)
 
     side = random.randint(1, 2)
     # 1 is left, 2 is right
@@ -21,7 +21,6 @@ def fish_generator(num_fishes):
         fish_x = random.randint(WIDTH, WIDTH+100)
         fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH, FISH_HEIGHT)
         fishes_right.append(fish)
-
 
 
 def fish_movement():
