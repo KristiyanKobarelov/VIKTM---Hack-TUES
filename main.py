@@ -21,6 +21,8 @@ def main_gameplay():
     add_fish = 500
     game_active = False
 
+    draw_cutscene1(WINDOW)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -45,7 +47,6 @@ def main_gameplay():
             draw(WINDOW, player_health)
 
         else:
-            draw_cutscene1(WINDOW)
             game_active = start_screen(WINDOW)
 
 
