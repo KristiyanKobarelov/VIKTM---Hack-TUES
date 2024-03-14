@@ -16,6 +16,7 @@ FISH_VEL = 4
 
 fishes_right = []
 fishes_left = []
+rainbow_fish = []
 
 BOAT_VEL = 7
 

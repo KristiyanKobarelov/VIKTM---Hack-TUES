@@ -36,7 +36,9 @@ def main_gameplay():
                     fish_timer = 0
 
             fish_movement()
+
             player_movement()
+
             player_health = detect_collision(player_health)
 
             draw(WINDOW, player_health)

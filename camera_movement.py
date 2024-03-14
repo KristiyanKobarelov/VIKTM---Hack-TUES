@@ -1,8 +1,4 @@
-from constants import *
-import pygame
-from fish import *
-from random import randint
-
+from draw_function import *
 
 
 def player_movement():

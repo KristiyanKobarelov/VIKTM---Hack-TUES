@@ -32,6 +32,10 @@ def draw(window, player_health, temp_x=0):
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
     WINDOW.blit(new_cursor, cursor_rect)
+    for fish in rainbow_fish:
+        if pygame.Rect.colliderect(cursor_rect, fish.rect):
+            if pygame.mouse.get_pressed()[0]:
+                print('yo')
 
     for fish in fishes_left:
         fish_surf = pygame.Surface((fish.width, fish.height))
