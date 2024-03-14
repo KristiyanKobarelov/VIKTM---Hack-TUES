@@ -17,7 +17,7 @@ add_fish = 2000
 player_surf = pygame.Surface((100, 40))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
-fish_surf = pygame.Surface((20, 40))
+fish_surf = pygame.Surface((FISH_WIDTH, FISH_HEIGHT))
 
 game_active = False
 start_time = 0
