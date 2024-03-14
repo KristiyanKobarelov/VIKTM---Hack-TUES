@@ -11,6 +11,9 @@ pygame.font.init()
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
 text_surf = text_font.render('Health: ', False, 'Black')
 
+start_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
+start_font_surf = start_font.render('Start', False, 'Blue')
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -87,6 +90,8 @@ def start_screen(window):
 
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
+
+    window.blit(start_screen_surf, ())
 
     pygame.display.update()
 

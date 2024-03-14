@@ -1,6 +1,5 @@
 import pygame.mouse
 
-from draw_function import *
 from collision import *
 from camera_movement import *
 from cutscene1 import *
