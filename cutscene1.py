@@ -1,23 +1,55 @@
+import os
 from constants import *
 pygame.init()
 
-SKY_COLOR_CUTSCENE1 = (191, 250, 255)
+background_cutscene1_surf = pygame.transform.scale(
+    pygame.image.load(os.path.join('images', 'ocean_background.png')), (WIDTH, HEIGHT))
 
-sky_surf = pygame.Surface((WIDTH, HEIGHT))
-sky_surf.fill(SKY_COLOR_CUTSCENE1)
+boat_serf = pygame.image.load(
+    os.path.join('images', 'boat.png'))
 
-water_serf = pygame.Surface((WIDTH, 100))
-water_serf.fill(BACKGROUND_COLOR)
+player_cutscene_serf = pygame.Surface((40, 100))
+
+clock2 = pygame.time.Clock()
 
 
 def draw_cutscene1(window):
-    while player_rect.top < HEIGHT + 100:
-        window.blit(sky_surf, (0, 0))
-        window.blit(water_serf, (0, HEIGHT - 100))
+    boat_width = -200
+
+    while boat_width < WIDTH//2 - 250:
+        clock2.tick(FPS)
+
+        window.blit(background_cutscene1_surf, (0, 0))
+
+        boat_width += BOAT_VEL
+
+        window.blit(boat_serf, (boat_width, HEIGHT - 150))
+        window.blit(player_cutscene_serf, (boat_width + 70, HEIGHT - 180))
 
         pygame.display.update()
 
+    player_x = boat_width + 70
+    player_y = HEIGHT - 180
+    up = True
 
-if __name__ == '__main__':
-    WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
-    draw_cutscene1(WINDOW)
+    while True:
+        clock2.tick(FPS)
+
+        window.blit(background_cutscene1_surf, (0, 0))
+
+        if player_y > HEIGHT - 250 and up:
+            player_y -= 4
+        else:
+            up = False
+            player_y += 4
+
+        if player_x <= boat_width + 250:
+            player_x += 6
+
+        window.blit(boat_serf, (boat_width, HEIGHT - 150))
+        window.blit(player_cutscene_serf, (player_x, player_y))
+
+        pygame.display.update()
+
+        if player_y > HEIGHT + 200:
+            break

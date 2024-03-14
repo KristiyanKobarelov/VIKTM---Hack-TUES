@@ -1,4 +1,5 @@
 from constants import *
+from draw_function import background_surf
 
 
 def detect_collision(player_health):

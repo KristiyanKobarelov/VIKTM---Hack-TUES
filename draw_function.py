@@ -74,3 +74,19 @@ def draw(window, player_health, temp_x=0):
         window.blit(broken_heart_surf, (160, -45))
 
     pygame.display.update()
+
+
+
+def start_screen(window, start_surf, quit_surf):
+
+    start_surf = pygame.Surface((START_WIDTH, START_HEIGHT))
+    start_surf.fill('white')
+
+    quit_surf = pygame.Surface((START_WIDTH, START_HEIGHT))
+    quit_surf.fill('white')
+
+    background_surf.fill('black')
+    window.blit(background_surf, (0, 0))
+
+    window.blit(start_surf, (200, 200))
+    window.blit(quit_surf, (200, 500))
