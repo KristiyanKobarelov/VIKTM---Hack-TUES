@@ -4,18 +4,20 @@ from draw_function import *
 def player_movement(depth):
     keys = pygame.key.get_pressed()
 
+    print(depth)
+
     if keys[pygame.K_UP] or keys[pygame.K_w]:
         for fish in fishes_left:
             fish.y += PLAYER_SPEED
         for fish in fishes_right:
             fish.y += PLAYER_SPEED
 
-        depth -= 1
-
         for hostile_fish in hostile_fishes_left:
             hostile_fish.y += PLAYER_SPEED
         for hostile_fish in hostile_fishes_right:
             hostile_fish.y += PLAYER_SPEED
+
+        depth -= 1
 
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         for fish in fishes_left:
@@ -23,18 +25,19 @@ def player_movement(depth):
         for fish in fishes_right:
             fish.y -= PLAYER_SPEED
 
-        depth += 1
-
         for hostile_fish in hostile_fishes_left:
             hostile_fish.y -= PLAYER_SPEED
         for hostile_fish in hostile_fishes_right:
             hostile_fish.y -= PLAYER_SPEED
+
+        depth += 1
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         for fish in fishes_left:
             fish.x += PLAYER_SPEED
         for fish in fishes_right:
             fish.x += PLAYER_SPEED
+
         for hostile_fish in hostile_fishes_left:
             hostile_fish.x += PLAYER_SPEED
         for hostile_fish in hostile_fishes_right:
@@ -51,4 +54,4 @@ def player_movement(depth):
         for hostile_fish in hostile_fishes_right:
             hostile_fish.x -= PLAYER_SPEED
             
-        return depth
+    return depth
