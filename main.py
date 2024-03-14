@@ -1,11 +1,10 @@
 from draw_function import *
-from fish import *
 from collision import *
 from camera_movement import *
 from sys import exit
 
 pygame.init()
-WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+
 pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
@@ -38,7 +37,7 @@ def main_gameplay():
 
         player_health = detect_collision(player_health)
 
-        draw(WINDOW)
+        draw(WINDOW, player_health)
 
 
 if __name__ == '__main__':

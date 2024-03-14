@@ -2,7 +2,7 @@ import pygame
 
 WIDTH, HEIGHT = 800, 400
 
-START_WIDTH, START_HEIGHT = 200, 50
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 
 BACKGROUND_COLOR = (113, 196, 237)
 
