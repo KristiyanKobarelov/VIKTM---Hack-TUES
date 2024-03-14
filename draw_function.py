@@ -82,15 +82,9 @@ def start_screen(window):
     start_surf.fill('white')
     start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
-<<<<<<< Updated upstream
-    background_surf_2 = pygame.Surface((WIDTH, HEIGHT))
-    background_surf_2.fill('black')
-    window.blit(background_surf, (0, 0))
-=======
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill('black')
     window.blit(start_screen_surf, (0, 0))
->>>>>>> Stashed changes
 
     window.blit(start_surf, start_rect)
 
