@@ -17,6 +17,10 @@ FISH_VEL = 4
 fishes_right = []
 fishes_left = []
 
+BOAT_VEL = 7
+
+game_active = False
+
 player_surf = pygame.Surface((100, 40))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
