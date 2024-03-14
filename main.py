@@ -12,6 +12,8 @@ clock = pygame.time.Clock()
 
 def main():
     fish_timer = 0
+    player_health = 100
+    add_fish = 500
 
     while True:
         fish_timer += clock.tick(FPS)
@@ -29,10 +31,9 @@ def main():
 
         fish_movement()
 
-        detect_collision()
+        player_health = detect_collision(player_health)
 
         draw(WINDOW)
-
 
 
 if __name__ == '__main__':
