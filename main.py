@@ -1,5 +1,6 @@
 from draw_function import *
 from fish import *
+from collision import *
 from sys import exit
 
 pygame.init()
@@ -9,22 +10,29 @@ pygame.display.set_caption('Secrets of the deep')
 clock = pygame.time.Clock()
 
 
-def timer():
-    current_time = pygame.time.get_ticks() - start_time
-
-
 def main():
+    fish_timer = 0
+
     while True:
+        fish_timer += clock.tick(FPS)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
 
-        fish_generator(5)
+        if fish_timer > add_fish:
+            # Creating 3 stars
+            fish_generator(5)
+            # We start counting again for the next new stars
+            fish_timer = 0
+
         fish_movement()
 
+        # detect_collision()
+
         draw(WINDOW)
-        clock.tick(FPS)
+
 
 
 if __name__ == '__main__':
