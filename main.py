@@ -9,9 +9,13 @@ pygame.display.set_caption('Secrets of the deep')
 
 clock = pygame.time.Clock()
 
+# game_active = False
+# start_time = 0
 
-def main():
+def main_gameplay():
     fish_timer = 0
+    player_health = 7
+    add_fish = 500
 
     while True:
         fish_timer += clock.tick(FPS)
@@ -29,11 +33,10 @@ def main():
 
         fish_movement()
 
-        # detect_collision()
+        player_health = detect_collision(player_health)
 
         draw(WINDOW)
 
 
-
 if __name__ == '__main__':
-    main()
+    main_gameplay()
