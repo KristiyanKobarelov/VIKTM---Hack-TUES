@@ -93,3 +93,4 @@ def start_screen(window):
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             return True
+    print(something)
