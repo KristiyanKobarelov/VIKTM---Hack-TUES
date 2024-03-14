@@ -2,6 +2,8 @@ import pygame
 
 WIDTH, HEIGHT = 800, 400
 
+WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+
 BACKGROUND_COLOR = (113, 196, 237)
 
 FPS = 60
