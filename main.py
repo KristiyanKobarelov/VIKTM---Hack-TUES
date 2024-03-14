@@ -20,6 +20,7 @@ def main_gameplay():
     player_health = 7
     add_fish = 500
     game_active = False
+    depth_pixels = 500  # 50 pixels = 1 meter
 
     draw_cutscene1(WINDOW)
 
@@ -40,7 +41,7 @@ def main_gameplay():
 
             fish_movement()
 
-            player_movement()
+            depth_pixels = player_movement(depth_pixels)
 
             player_health = detect_collision(player_health)
 
