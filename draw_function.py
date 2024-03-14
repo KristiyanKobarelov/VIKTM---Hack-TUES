@@ -1,6 +1,7 @@
 import pygame.transform
 
 from fish import *
+from hostile_fish import *
 
 player_surf.fill('green')
 
@@ -39,6 +40,15 @@ def draw(window, player_health, temp_x=0):
     for fish in fishes_right:
         fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
+
+    for hostile_fish in hostile_fishes_left:
+        hostile_fish_surf = pygame.Surface((HOSTILE_WIDTH, HOSTILE_HEIGHT))
+        hostile_fish_surf.fill('red')
+        window.blit(hostile_fish_surf, (hostile_fish.x, hostile_fish.y))
+    for hostile_fish in hostile_fishes_right:
+        hostile_fish_surf = pygame.Surface((HOSTILE_WIDTH, HOSTILE_HEIGHT))
+        hostile_fish_surf.fill('red')
+        window.blit(hostile_fish_surf, (hostile_fish.x, hostile_fish.y))
 
     for i in range(player_health):
         if i == 0:
