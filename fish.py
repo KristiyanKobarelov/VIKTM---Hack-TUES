@@ -15,11 +15,6 @@ def fish_generator():
             size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
             fishes_left.append(fish)
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-
         else:
             fish_x = random.randint(WIDTH, WIDTH+100)
             size = random.uniform(1,2)
