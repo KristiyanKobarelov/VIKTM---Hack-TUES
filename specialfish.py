@@ -3,7 +3,7 @@ import random
 from constants import *
 
 def special_fish_generator():
-    specialty = random.randint(0,300)
+    specialty = random.randint(100,100)
     if specialty == 100:
         fish_y = random.randint(0, 4*HEIGHT)
 
@@ -27,8 +27,8 @@ def special_fish_movement():
     for fish in special_fish_left:
         fish.x += FISH_VEL
         if fish.x > WIDTH:
-            fishes_left.remove(fish)
+            special_fish_left.remove(fish)
     for fish in special_fish_right:
         fish.x -= FISH_VEL
         if fish.x < -100:
-            fishes_right.remove(fish)
+            special_fish_right.remove(fish)

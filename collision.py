@@ -47,4 +47,18 @@ def detect_collision(player_health):
             if player_health <= 0:
                 exit()
 
+    for fish in special_fish_left:
+        if player_rect.colliderect(fish):
+            player_health -= 1
+            special_fish_left.remove(fish)
+            if player_health <= 0:
+                exit()
+    
+    for fish in special_fish_right:
+        if player_rect.colliderect(fish):
+            player_health -= 1
+            special_fish_right.remove(fish)
+            if player_health <= 0:
+                exit()
+
     return player_health
