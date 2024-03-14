@@ -82,9 +82,9 @@ def draw(window, player_health, temp_x=0):
 
 def start_screen(window):
 
-    start_surf = pygame.Surface((200, 200))
+    start_surf = pygame.Surface((200, 60))
     start_surf.fill('white')
-    start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
+    start_rect = start_surf.get_rect(topleft = (WIDTH/2 - 200/2, HEIGHT - 360))
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill('black')
