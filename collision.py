@@ -17,5 +17,3 @@ def detect_collision(player_health):
                 exit()
 
     return player_health
-
-

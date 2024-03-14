@@ -16,6 +16,10 @@ max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
 broken_heart_surf = pygame.transform.rotozoom(broken_heart_surf, 0, 0.3)
 
+new_cursor = pygame.image.load('Cursor/noun-viewfinder-92699.png').convert_alpha()
+new_cursor = pygame.transform.rotozoom(new_cursor, 0, 0.1)
+pygame.mouse.set_visible(False)
+
 
 def draw(window, player_health, temp_x=0):
     # Draw everything on screen
@@ -25,6 +29,9 @@ def draw(window, player_health, temp_x=0):
     window.blit(player_surf, player_rect)
 
     window.blit(text_surf, (5, 5))
+
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    WINDOW.blit(new_cursor, cursor_rect)
 
     for fish in fishes_left:
         fish_surf = pygame.Surface((fish.width, fish.height))
