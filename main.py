@@ -1,6 +1,7 @@
 from draw_function import *
 from fish import *
 from collision import *
+from camera_movement import *
 from sys import exit
 
 pygame.init()
