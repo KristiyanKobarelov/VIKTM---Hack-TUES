@@ -1,6 +1,6 @@
 from constants import *
 
-player_surf.fill('red')
+player_surf.fill('green')
 
 background_surf = pygame.Surface((WIDTH, HEIGHT))
 background_surf.fill(BACKGROUND_COLOR)
