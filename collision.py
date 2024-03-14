@@ -1,4 +1,3 @@
-import pygame
 from fish import *
 from constants import *
 
