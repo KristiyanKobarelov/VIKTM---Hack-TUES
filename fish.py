@@ -4,7 +4,7 @@ from constants import *
 
 
 def fish_generator():
-    for i in range(0, 5):
+    for i in range(0, 3):
         fish_y = random.randint(0, 4*HEIGHT)
 
         side = random.randint(1, 2)
@@ -12,13 +12,13 @@ def fish_generator():
 
         if side == 1:
             fish_x = random.randint(-100, 0)
-            size = random.randint(1,3)
+            size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
             fishes_left.append(fish)
 
         else:
             fish_x = random.randint(WIDTH, WIDTH+100)
-            size = random.randint(1,3)
+            size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
             fishes_right.append(fish)
 

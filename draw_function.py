@@ -13,8 +13,10 @@ def draw(window):
     window.blit(player_surf, player_rect)
 
     for fish in fishes_left:
+        fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
     for fish in fishes_right:
+        fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
 
     pygame.display.update()
