@@ -27,5 +27,5 @@ def fish_movement():
             fishes_left.remove(fish)
     for fish in fishes_right:
         fish.x -= FISH_VEL
-        if fish.x < 0:
+        if fish.x < -100:
             fishes_right.remove(fish)

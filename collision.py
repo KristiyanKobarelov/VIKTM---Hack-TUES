@@ -18,3 +18,4 @@ def detect_collision():
             if(player_health == 0):
                 exit()
 
+
