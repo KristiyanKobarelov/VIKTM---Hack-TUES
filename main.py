@@ -1,23 +1,25 @@
 import pygame
 from sys import exit
 
+from constants import *
+from draw_function import *
 
 pygame.init()
-screen = pygame.display.set_mode((800, 400))
+WINDOW = pygame.display.set_mode(WIDTH, HEIGHT)
 pygame.display.set_caption('Secrets of the deep')
 
 clock = pygame.time.Clock()
 
-background_surf = pygame.Surface((800, 400))
-background_surf.fill((159, 252, 253))
+background_surf = pygame.Surface(WIDTH, HEIGHT)
+background_surf.fill(BACKGROUND_COLOR)
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            exit()
 
-    screen.blit(background_surf, (0, 0))
+def main():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
 
-    pygame.display.update()
-    clock.tick(60)
+        draw(WINDOW)
+        clock.tick(FPS)
