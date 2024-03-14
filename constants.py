@@ -4,7 +4,7 @@ WIDTH, HEIGHT = 800, 400
 
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 
-BACKGROUND_COLOR = (113, 196, 237)
+BACKGROUND_COLOR = (96, 126, 181)
 
 FPS = 60
 
@@ -19,9 +19,5 @@ fishes_left = []
 
 BOAT_VEL = 7
 
-game_active = False
-
 player_surf = pygame.Surface((100, 40))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
-
-

@@ -19,15 +19,16 @@ def main_gameplay():
     fish_timer = 0
     player_health = 7
     add_fish = 500
+    game_active = False
 
-    if game_active:
-        while True:
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+        if game_active:
             fish_timer += clock.tick(FPS)
-
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    exit()
 
             if game_active:
                 if fish_timer > add_fish:
@@ -41,8 +42,9 @@ def main_gameplay():
 
             draw(WINDOW, player_health)
 
-    else:
-        draw_cutscene1(WINDOW)
+        else:
+            draw_cutscene1(WINDOW)
+            game_active = start_screen(WINDOW)
 
 
 if __name__ == '__main__':
