@@ -6,7 +6,7 @@ from sys import exit
 
 pygame.init()
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('Secrets of the deep')
+pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
 
@@ -33,6 +33,8 @@ def main_gameplay():
             fish_timer = 0
 
         fish_movement()
+
+        player_movement()
 
         player_health = detect_collision(player_health)
 
