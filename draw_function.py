@@ -4,7 +4,7 @@ from constants import *
 
 player_surf = pygame.Surface((100, 40))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
-player_surf.fill('red')
+player_surf.fill('green')
 
 background_surf = pygame.Surface((WIDTH, HEIGHT))
 background_surf.fill(BACKGROUND_COLOR)
