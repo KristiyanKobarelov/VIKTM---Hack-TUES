@@ -84,9 +84,11 @@ def start_screen(window):
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill('black')
-    window.blit(start_screen_surf, (0, 0))
 
+    window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
+
+    pygame.display.update()
 
     mouse_pos = pygame.mouse.get_pos()
     if start_rect.collidepoint(mouse_pos):
