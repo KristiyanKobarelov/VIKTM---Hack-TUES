@@ -21,5 +21,7 @@ def main():
                 pygame.quit()
                 exit()
 
+
+
         draw(WINDOW)
         clock.tick(FPS)
