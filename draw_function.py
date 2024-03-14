@@ -83,7 +83,8 @@ def start_screen(window):
     start_surf.fill('white')
     start_rect = start_surf.get_rect(center = (WIDTH/2, HEIGHT/2))
 
-    background_surf.fill('black')
+    background_surf_2 = pygame.Surface((WIDTH, HEIGHT))
+    background_surf_2.fill('black')
     window.blit(background_surf, (0, 0))
 
     window.blit(start_surf, start_rect)
