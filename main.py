@@ -1,6 +1,7 @@
 from collision import *
 from camera_movement import *
 from cutscene1 import *
+from specialfish import *
 from sys import exit
 
 pygame.init()
@@ -35,6 +36,7 @@ def main_gameplay():
             if game_active:
                 if fish_timer > add_fish:
                     fish_generator()
+                    special_fish_generator()
 
                     fish_timer = 0
                 if hostile_timer > add_fish:
@@ -43,6 +45,8 @@ def main_gameplay():
                     hostile_timer = 0
 
             fish_movement()
+
+            special_fish_movement()
 
             depth_pixels = player_movement(depth_pixels)
 

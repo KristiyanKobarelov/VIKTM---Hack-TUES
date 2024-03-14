@@ -14,18 +14,22 @@ FISH_HEIGHT = 20
 FISH_WIDTH = 40
 FISH_VEL = 4
 
+fishes_right = []
+fishes_left = []
+
 HOSTILE_HEIGHT = 40
 HOSTILE_WIDTH = 80
 HOSTILE_VEL = 2
+HOSTILE_RADIUS = 250
 
 fishes_right = []
 fishes_left = []
-rainbow_fish = []
-
-BOAT_VEL = 7
-
+special_fish_right = []
+special_fish_left = []
 hostile_fishes_right = []
 hostile_fishes_left = []
+
+BOAT_VEL = 7
 
 player_surf = pygame.Surface((100, 40))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))

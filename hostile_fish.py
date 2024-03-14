@@ -27,16 +27,49 @@ def hostile_fish_generator():
             hostile_fishes_right.append(hostile_fish)
 
 
+def calculate_radius(hostile_fish):
+    x = abs(hostile_fish.x - WIDTH/2)
+    y = abs(hostile_fish.y - HEIGHT/2)
+    r = math.sqrt(x*x + y*y)
+    if r <= HOSTILE_RADIUS:
+        return True
+    else:
+        return False
+
+
 def hostile_fish_movement():
     for hostile_fish in hostile_fishes_left:
-        hostile_fish.x += HOSTILE_VEL
-        if hostile_fish.x > WIDTH:
-            hostile_fishes_left.remove(hostile_fish)
-        if hostile_fish.y > HEIGHT:
-            hostile_fishes_left.remove(hostile_fish)
+        if calculate_radius(hostile_fish):
+            if hostile_fish.x > WIDTH / 2:
+                hostile_fish.x -= 1
+            else:
+                hostile_fish.x += 1
+
+            if hostile_fish.y > HEIGHT / 2:
+                hostile_fish.y -= 1
+            else:
+                hostile_fish.y += 1
+        else:
+            hostile_fish.x += HOSTILE_VEL
+            if hostile_fish.x > WIDTH + 100:
+                hostile_fishes_left.remove(hostile_fish)
+            elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
+                hostile_fishes_left.remove(hostile_fish)
+
     for hostile_fish in hostile_fishes_right:
-        hostile_fish.x -= HOSTILE_VEL
-        if hostile_fish.x < 0:
-            hostile_fishes_right.remove(hostile_fish)
-        if hostile_fish.y < 0:
-            hostile_fishes_right.remove(hostile_fish)
+        if calculate_radius(hostile_fish):
+            if hostile_fish.x > WIDTH/2:
+                hostile_fish.x -= 1
+            else:
+                hostile_fish.x += 1
+
+            if hostile_fish.y > HEIGHT/2:
+                hostile_fish.y -= 1
+            else:
+                hostile_fish.y += 1
+        else:
+            hostile_fish.x -= HOSTILE_VEL
+            if hostile_fish.x < -100:
+                hostile_fishes_right.remove(hostile_fish)
+            elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
+                hostile_fishes_right.remove(hostile_fish)

@@ -1,10 +1,10 @@
+import pygame
 import random
-import time
 from constants import *
 
-
-def fish_generator():
-    for i in range(0, 3):
+def special_fish_generator():
+    specialty = random.randint(100,100)
+    if specialty == 100:
         fish_y = random.randint(0, 4*HEIGHT)
 
         side = random.randint(1, 2)
@@ -14,20 +14,21 @@ def fish_generator():
             fish_x = random.randint(-100, 0)
             size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
-            fishes_left.append(fish)
+            special_fish_left.append(fish)
+
+
         else:
             fish_x = random.randint(WIDTH, WIDTH+100)
             size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
-            fishes_right.append(fish)
-
-
-def fish_movement():
-    for fish in fishes_left:
+            special_fish_right.append(fish)
+    
+def special_fish_movement():
+    for fish in special_fish_left:
         fish.x += FISH_VEL
         if fish.x > WIDTH:
-            fishes_left.remove(fish)
-    for fish in fishes_right:
+            special_fish_left.remove(fish)
+    for fish in special_fish_right:
         fish.x -= FISH_VEL
         if fish.x < -100:
-            fishes_right.remove(fish)
+            special_fish_right.remove(fish)
