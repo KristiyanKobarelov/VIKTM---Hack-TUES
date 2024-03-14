@@ -5,8 +5,6 @@ from constants import *
 
 def fish_generator():
     for i in range(0, 3):
-        rainbow = random.randint(0, 300)
-
         fish_y = random.randint(0, 4*HEIGHT)
 
         side = random.randint(1, 2)
@@ -17,16 +15,12 @@ def fish_generator():
             size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
             fishes_left.append(fish)
-            if rainbow == 300:
-                rainbow_fish.append(fish)
 
         else:
             fish_x = random.randint(WIDTH, WIDTH+100)
             size = random.uniform(1,2)
             fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
             fishes_right.append(fish)
-            if rainbow == 300:
-                rainbow_fish.append(fish)
 
 
 def fish_movement():
