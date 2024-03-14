@@ -12,3 +12,4 @@ def detect_collision():
         if player_rect.colliderect(fish):
             pygame.quit()
             exit()
+
