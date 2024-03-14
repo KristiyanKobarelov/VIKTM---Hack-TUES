@@ -1,4 +1,3 @@
-from constants import *
 from draw_function import *
 from fish import *
 from collision import *
@@ -30,7 +29,7 @@ def main():
 
         fish_movement()
 
-        # detect_collision()
+        detect_collision()
 
         draw(WINDOW)
 
