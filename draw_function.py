@@ -27,8 +27,10 @@ def draw(window, player_health, temp_x=0):
     window.blit(text_surf, (5, 5))
 
     for fish in fishes_left:
+        fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
     for fish in fishes_right:
+        fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
 
     for i in range(player_health):

@@ -3,21 +3,24 @@ import time
 from constants import *
 
 
-def fish_generator(num_fishes):
-    fish_y = random.randint(-HEIGHT//2, HEIGHT)
+def fish_generator():
+    for i in range(0, 3):
+        fish_y = random.randint(0, 4*HEIGHT)
 
-    side = random.randint(1, 2)
-    # 1 is left, 2 is right
+        side = random.randint(1, 2)
+        # 1 is left, 2 is right
 
-    if side == 1:
-        fish_x = random.randint(-100, 0)
-        fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH, FISH_HEIGHT)
-        fishes_left.append(fish)
+        if side == 1:
+            fish_x = random.randint(-100, 0)
+            size = random.uniform(1,2)
+            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
+            fishes_left.append(fish)
 
-    else:
-        fish_x = random.randint(WIDTH, WIDTH+100)
-        fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH, FISH_HEIGHT)
-        fishes_right.append(fish)
+        else:
+            fish_x = random.randint(WIDTH, WIDTH+100)
+            size = random.uniform(1,2)
+            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
+            fishes_right.append(fish)
 
 
 def fish_movement():
