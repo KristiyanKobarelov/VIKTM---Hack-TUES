@@ -27,8 +27,13 @@ GOLDEN_FISH_WIDTH = 20
 
 fishes_right = []
 fishes_left = []
+
 special_fish_right = []
 special_fish_left = []
+
+unspecial_fish_left = []
+unspecial_fish_right = []
+
 hostile_fishes_right = []
 hostile_fishes_left = []
 
