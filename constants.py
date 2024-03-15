@@ -14,13 +14,13 @@ FISH_HEIGHT = 20
 FISH_WIDTH = 40
 FISH_VEL = 4
 
-fishes_right = []
-fishes_left = []
-
 HOSTILE_HEIGHT = 40
 HOSTILE_WIDTH = 80
 HOSTILE_VEL = 2
 HOSTILE_RADIUS = 250
+
+SECIAL_FISH_RADIUS = 250
+SPECIAL_FISH_VEL = 7
 
 fishes_right = []
 fishes_left = []
