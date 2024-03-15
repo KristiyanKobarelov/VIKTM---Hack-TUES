@@ -1,6 +1,4 @@
 from constants import *
-from draw_function import background_surf
-import math
 
 player_x = WIDTH // 2
 player_y = HEIGHT // 2

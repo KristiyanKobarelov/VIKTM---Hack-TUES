@@ -1,11 +1,12 @@
+import pygame.image
+
 from constants import *
 from animations import *
 from sys import exit
 from hostile_fish import *
 
-
-background_surf = pygame.Surface((WIDTH, HEIGHT))
-background_surf.fill(BACKGROUND_COLOR)
+background_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
+background_surf = pygame.transform.rotozoom(background_surf, 0, 0.8)
 
 pygame.font.init()
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
@@ -118,8 +119,6 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     # depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
     depth_text_surf = text_font.render(f'{depth}', 0, 'White')
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
-
-
 
     score_text_surf = text_font.render(f'Score: {score}', 0, 'Black')
     score_rect = score_text_surf.get_rect(midright=(WIDTH - 10, 25))
