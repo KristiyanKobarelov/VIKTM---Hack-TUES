@@ -28,8 +28,8 @@ def main_gameplay():
     game_active = 0
     depth_pixels = 500  # 50 pixels = 1 meter
 
-    draw_cutscene1(WINDOW)
-    draw_cutscene2(WINDOW)
+    # draw_cutscene1(WINDOW)
+    # draw_cutscene2(WINDOW)
 
     while True:
         for event in pygame.event.get():

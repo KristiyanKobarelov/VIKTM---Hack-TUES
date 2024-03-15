@@ -216,12 +216,15 @@ def controls_menu(window):
     backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH / 2, HEIGHT - 85))
     window.blit(backbutton_text_surf, backbutton_text_rect)
 
-    ret = 0
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    window.blit(new_cursor, cursor_rect)
+
+    ret_2 = 2
     mouse_pos = pygame.mouse.get_pos()
     if back_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            pass
-        
-    return ret
+            ret_2 = 0
 
     pygame.display.update()
+
+    return ret_2
