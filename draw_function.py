@@ -35,6 +35,15 @@ quitbutton_text_surf = quitbutton_text.render('Quit', False, 'Black')
 backbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
 backbutton_text_surf = backbutton_text.render('Back', False, 'Black')
 
+endscreen_text = pygame.font.Font('Font/Pixeltype.ttf', 70)
+endscreen_text_surf = endscreen_text.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
+
+endres_text = pygame.font.Font('Font/Pixeltype.ttf', 50)
+endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
+
+endmenu_text = pygame.font.Font('Font/Pixeltype.ttf', 45)
+endmenu_text_surf = endmenu_text.render('Main Menu', False, BACKGROUND_COLOR)
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -237,3 +246,42 @@ def controls_menu(window):
     pygame.display.update()
 
     return ret_2
+
+def death_screen(window):
+    background_surf.fill('black')
+    window.blit(background_surf, (0, 0))
+
+    menubutton_surf = pygame.Surface((150, 60))
+    menubutton_surf.fill('White')
+    menubutton_rect = menubutton_surf.get_rect(topleft = (WIDTH - 200, HEIGHT - 150))
+    window.blit(menubutton_surf, menubutton_rect)
+
+    resbutton_surf = pygame.Surface((150, 60))
+    resbutton_surf.fill('white')
+    resbutton_rect = resbutton_surf.get_rect(topleft=(WIDTH - 200, HEIGHT - 250))
+    window.blit(resbutton_surf, resbutton_rect)
+
+    endscreen_text_rect = endscreen_text_surf.get_rect(center=(WIDTH - 400, HEIGHT - 350))
+    window.blit(endscreen_text_surf, endscreen_text_rect)
+
+    endmenu_text_rect = endmenu_text_surf.get_rect(center=(WIDTH - 125, HEIGHT - 115))
+    window.blit(endmenu_text_surf, endmenu_text_rect)
+
+    endres_text_rect = endres_text_surf.get_rect(topleft=(WIDTH - 183, HEIGHT - 230))
+    window.blit(endres_text_surf, endres_text_rect)
+
+    mouse_pos = pygame.mouse.get_pos()
+    ret_3 = 3
+
+    if resbutton_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            ret_3 = 1
+
+    if menubutton_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            ret_3 = 0
+
+    pygame.display.update()
+
+    return ret_3
+
