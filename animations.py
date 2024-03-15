@@ -26,13 +26,13 @@ def medusa_animations():
 
 
 shark_1 = pygame.image.load('Shark/32bit-shark-thresher1.png').convert_alpha()
-shark_1 = pygame.transform.rotozoom(shark_1, 0, 2)
+shark_1 = pygame.transform.rotozoom(shark_1, 0, 3)
 shark_2 = pygame.image.load('Shark/32bit-shark-thresher2.png').convert_alpha()
-shark_2 = pygame.transform.rotozoom(shark_2, 0, 2)
+shark_2 = pygame.transform.rotozoom(shark_2, 0, 3)
 shark_3 = pygame.image.load('Shark/32bit-shark-thresher3.png').convert_alpha()
-shark_3 = pygame.transform.rotozoom(shark_3, 0, 2)
+shark_3 = pygame.transform.rotozoom(shark_3, 0, 3)
 shark_4 = pygame.image.load('Shark/32bit-shark-thresher4.png').convert_alpha()
-shark_4 = pygame.transform.rotozoom(shark_4, 0, 2)
+shark_4 = pygame.transform.rotozoom(shark_4, 0, 3)
 
 shark = [shark_1, shark_2, shark_3, shark_4]
 shark_index = 0
