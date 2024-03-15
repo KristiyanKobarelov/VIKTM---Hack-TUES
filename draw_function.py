@@ -148,19 +148,23 @@ def start_screen(window):
 
     pygame.display.update()
 
+    ret = 0
+
     mouse_pos = pygame.mouse.get_pos()
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            return 1
+            ret = 1
 
     if control_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            return 2
+            ret = 2
 
     if quit_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             pygame.quit()
             exit()
+
+    return ret
 
 
 def controls_menu(window):
@@ -169,3 +173,5 @@ def controls_menu(window):
 
     moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 150))
     window.blit(moving_text_surf, moving_text_rect)
+
+    pygame.display.update()
