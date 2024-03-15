@@ -33,6 +33,15 @@ quitbutton_text_surf = quitbutton_text.render('Quit', False, 'Black')
 backbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
 backbutton_text_surf = backbutton_text.render('Back', False, 'Black')
 
+endscreen_text = pygame.font.Font('Font/Pixeltype.ttf', 70)
+endscreen_text_surf = endscreen_text.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
+
+endres_text = pygame.font.Font('Font/Pixeltype.ttf', 50)
+endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
+
+endmenu_text = pygame.font.Font('Font/Pixeltype.ttf', 45)
+endmenu_text_surf = endmenu_text.render('Main Menu', False, BACKGROUND_COLOR)
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -87,7 +96,7 @@ def draw(window, player_health, temp_x=0):
     WINDOW.blit(new_cursor, cursor_rect)
 
     for i in range(player_health):
-        if i == 0:
+        if i <= 0:
             temp_x = 90
         elif i == 1:
             temp_x = 105
@@ -106,17 +115,17 @@ def draw(window, player_health, temp_x=0):
 
     if player_health < 1:
         window.blit(broken_heart_surf, (70, -45))
-    if player_health < 2:
+    elif player_health < 2:
         window.blit(broken_heart_surf, (85, -45))
-    if player_health < 3:
+    elif player_health < 3:
         window.blit(broken_heart_surf, (100, -45))
-    if player_health < 4:
+    elif player_health < 4:
         window.blit(broken_heart_surf, (115, -45))
-    if player_health < 5:
+    elif player_health < 5:
         window.blit(broken_heart_surf, (130, -45))
-    if player_health < 6:
+    elif player_health < 6:
         window.blit(broken_heart_surf, (145, -45))
-    if player_health < 7:
+    elif player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
     pygame.display.update()
@@ -210,3 +219,44 @@ def controls_menu(window):
     pygame.display.update()
 
     return ret_2
+
+
+def death_screen(window):
+    background_surf_2 = pygame.surface.Surface((800, 400))
+    background_surf_2.fill('black')
+    window.blit(background_surf_2, (0, 0))
+
+    menubutton_surf = pygame.Surface((150, 60))
+    menubutton_surf.fill('White')
+    menubutton_rect = menubutton_surf.get_rect(topleft = (WIDTH - 200, HEIGHT - 150))
+    window.blit(menubutton_surf, menubutton_rect)
+
+    resbutton_surf = pygame.Surface((150, 60))
+    resbutton_surf.fill('white')
+    resbutton_rect = resbutton_surf.get_rect(topleft=(WIDTH - 200, HEIGHT - 250))
+    window.blit(resbutton_surf, resbutton_rect)
+
+    endscreen_text_rect = endscreen_text_surf.get_rect(center=(WIDTH - 400, HEIGHT - 350))
+    window.blit(endscreen_text_surf, endscreen_text_rect)
+
+    endmenu_text_rect = endmenu_text_surf.get_rect(center=(WIDTH - 125, HEIGHT - 115))
+    window.blit(endmenu_text_surf, endmenu_text_rect)
+
+    endres_text_rect = endres_text_surf.get_rect(topleft=(WIDTH - 183, HEIGHT - 230))
+    window.blit(endres_text_surf, endres_text_rect)
+
+    mouse_pos = pygame.mouse.get_pos()
+    ret_3 = 3
+
+    if resbutton_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            ret_3 = 4
+
+    if menubutton_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            ret_3 = 0
+
+    pygame.display.update()
+
+    return ret_3
+

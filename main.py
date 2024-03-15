@@ -64,7 +64,7 @@ def main_gameplay():
 
             print(round(depth_pixels/50))
 
-            player_health = detect_collision(player_health)
+            player_health, game_active = detect_collision(player_health)
 
             draw(WINDOW, player_health)
 
@@ -74,8 +74,18 @@ def main_gameplay():
         elif game_active == 2:
             game_active = controls_menu(WINDOW)
 
+        elif game_active == 3:
+            game_active = death_screen(WINDOW)
+
+        elif game_active == 4:
+            return 0
+
 
 if __name__ == '__main__':
-    draw_cutscene1(WINDOW)
-    draw_cutscene2(WINDOW)
-    main_gameplay()
+    # draw_cutscene1(WINDOW)
+    # draw_cutscene2(WINDOW)
+
+    stop = 0
+    while stop == 0:
+        stop = main_gameplay()
+        print(1)
