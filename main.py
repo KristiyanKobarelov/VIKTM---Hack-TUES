@@ -8,6 +8,7 @@ from sys import exit
 from screenshot import *
 from unspecial_fish import *
 
+
 pygame.init()
 
 pygame.display.set_caption('Secrets of The Deep')
