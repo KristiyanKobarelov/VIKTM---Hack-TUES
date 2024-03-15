@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
-=======
 import pygame.transform
 from sys import exit
 import pygame
->>>>>>> Stashed changes
 from fish import *
 from hostile_fish import *
 
@@ -136,11 +133,8 @@ def start_screen(window):
     window.blit(control_surf, control_rect)
     window.blit(quit_surf, quit_rect)
 
-<<<<<<< Updated upstream
-    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH / 2 - 65, HEIGHT - 347))
-=======
-    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH/2 - 65, HEIGHT - 327))
->>>>>>> Stashed changes
+    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH / 2 - 65, HEIGHT - 327))
+
     window.blit(start_text_surf, start_text_rect)
 
     quitbutton_text_rect = quitbutton_text_surf.get_rect(topleft = (WIDTH/2 - 42, HEIGHT - 115))
@@ -158,8 +152,6 @@ def start_screen(window):
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             return True
-<<<<<<< Updated upstream
-=======
 
     if control_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
@@ -176,4 +168,3 @@ def controls_menu(window):
 
     moving_text_rect = moving_text_surf.get_rect(center = (WIDTH/2, HEIGHT - 150))
     window.blit(moving_text_surf, moving_text_rect)
->>>>>>> Stashed changes
