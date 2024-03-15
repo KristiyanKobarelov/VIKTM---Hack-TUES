@@ -32,7 +32,7 @@ depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
 depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
 
 
-def draw(window, player_health, depth, player_surf, player_rect, player_look_left, temp_x=0):
+def draw(window, player_health, depth, score, player_surf, player_rect, player_look_left, temp_x=0):
     # Draw everything on screen
 
     window.blit(background_surf, (0, 0))
@@ -113,6 +113,12 @@ def draw(window, player_health, depth, player_surf, player_rect, player_look_lef
     # depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
     depth_text_surf = text_font.render(f'{depth}', 0, 'White')
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
+
+
+
+    score_text_surf = text_font.render(f'Score: {score}', 0, 'Black')
+    score_rect = score_text_surf.get_rect(midright=(WIDTH - 10, 25))
+    window.blit(score_text_surf, score_rect)
 
     if depth <= 60:
         window.blit(depth_meter_1, (12, HEIGHT - 50))

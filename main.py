@@ -79,7 +79,7 @@ def main():
 
             player_health, game_active = detect_collision(player_health, player_rect)
 
-            draw(WINDOW, player_health, round(depth_pixels/50), player_surf, player_rect, player_look)
+            draw(WINDOW, player_health, round(depth_pixels/50), points, player_surf, player_rect, player_look)
 
         elif game_active == 0:
             game_active = start_screen(WINDOW)
