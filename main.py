@@ -44,7 +44,7 @@ def main():
 
     depth_pixels = 500  # 50 pixels = 1 meter
 
-    # draw_cutscene1(WINDOW)
+    draw_cutscene1(WINDOW)
     draw_cutscene2(WINDOW)
 
     while True:

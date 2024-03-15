@@ -40,14 +40,14 @@ def hostile_fish_movement():
     for hostile_fish in hostile_fishes_left:
         if calculate_radius(hostile_fish):
             if hostile_fish.x > WIDTH / 2:
-                hostile_fish.x -= 1
+                hostile_fish.x -= 2
             else:
-                hostile_fish.x += 1
+                hostile_fish.x += 2
 
             if hostile_fish.y > HEIGHT / 2:
-                hostile_fish.y -= 1
+                hostile_fish.y -= 2
             else:
-                hostile_fish.y += 1
+                hostile_fish.y += 2
         else:
             hostile_fish.x += HOSTILE_VEL
             if hostile_fish.x > WIDTH + 100 and hostile_fish in hostile_fishes_left:
