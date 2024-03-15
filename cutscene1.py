@@ -71,9 +71,10 @@ def draw_cutscene1(window):
             player_x += 6
 
         window.blit(boat_serf, (boat_width, HEIGHT - 150))
-        window.blit(player_cutscene_up_surf, (player_x, player_y))
+        if player_x < WIDTH/2:
+            window.blit(player_cutscene_up_surf, (player_x, player_y))
 
-        if player_x >= WIDTH/2:
+        elif player_x >= WIDTH/2:
             window.blit(pygame.transform.flip(player_cutscene_up_surf, 0, 1), (player_x, player_y))
 
         if player_y > HEIGHT + 150:
