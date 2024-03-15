@@ -25,40 +25,40 @@ def special_fish_generator():
 
 def special_fish_movement():
     for fish in special_fish_left:
-        if calculate_radius(fish):
+        if calculate_radius_special_fish(fish):
             if fish.x > WIDTH / 2:
-                fish.x += 1
+                fish.x += 3
             else:
-                fish.x -= 1
+                fish.x -= 3
 
             if fish.y > HEIGHT / 2:
-                fish.y += 1
+                fish.y += 3
             else:
-                fish.y -= 1
-        fish.x += FISH_VEL
+                fish.y -= 3
+        fish.x += SPECIAL_FISH_VEL
         if fish.x > WIDTH:
             special_fish_left.remove(fish)
     for fish in special_fish_right:
-        if calculate_radius(fish):
+        if calculate_radius_special_fish(fish):
             if fish.x > WIDTH / 2:
-                fish.x += 1
+                fish.x += 3
             else:
-                fish.x -= 1
+                fish.x -= 3
 
             if fish.y > HEIGHT / 2:
-                fish.y += 1
+                fish.y += 3
             else:
-                fish.y -= 1
-        fish.x += FISH_VEL
-        fish.x -= FISH_VEL
+                fish.y -= 3
+        fish.x += SPECIAL_FISH_VEL
+        fish.x -= SPECIAL_FISH_VEL
         if fish.x < -100:
             special_fish_right.remove(fish)
 
-def calculate_radius(special_fish):
+def calculate_radius_special_fish(special_fish):
     x = abs(special_fish.x - WIDTH/2)
     y = abs(special_fish.y - HEIGHT/2)
     r = math.sqrt(x*x + y*y)
-    if r <= HOSTILE_RADIUS:
+    if r <= SECIAL_FISH_RADIUS:
         return True
     else:
         return False
