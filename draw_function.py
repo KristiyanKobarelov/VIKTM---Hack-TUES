@@ -220,6 +220,7 @@ def controls_menu(window):
 
     return ret_2
 
+
 def death_screen(window):
     background_surf.fill('black')
     window.blit(background_surf, (0, 0))
@@ -248,7 +249,7 @@ def death_screen(window):
 
     if resbutton_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            ret_3 = 1
+            ret_3 = 4
 
     if menubutton_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
