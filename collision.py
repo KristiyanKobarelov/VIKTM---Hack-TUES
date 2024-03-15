@@ -24,44 +24,32 @@ def detect_collision(player_health):
                 ret = 3
 
     for hostile_fish in hostile_fishes_left:
-        angle = math.atan2(player_y - hostile_fish[1], player_x - hostile_fish[0])
-        hostile_speed = 1
-        hostile_fish[0] += hostile_speed * math.cos(angle)
-        hostile_fish[1] += hostile_speed * math.sin(angle)
-
-    for hostile_fish in hostile_fishes_right:
-        angle = math.atan2(player_y - hostile_fish[1], player_x - hostile_fish[0])
-        hostile_speed = 1
-        hostile_fish[0] += hostile_speed * math.cos(angle)
-        hostile_fish[1] += hostile_speed * math.sin(angle)
-
-    for hostile_fish in hostile_fishes_left:
         if player_rect.colliderect(hostile_fish):
             player_health -= 2
             hostile_fishes_left.remove(hostile_fish)
             if player_health <= 0:
-                exit()
+                ret = 3
 
     for hostile_fish in hostile_fishes_right:
         if player_rect.colliderect(hostile_fish):
             player_health -= 2
             hostile_fishes_right.remove(hostile_fish)
             if player_health <= 0:
-                exit()
+                ret = 3
 
     for fish in unspecial_fish_left:
         if player_rect.colliderect(fish):
             player_health -= 1
             unspecial_fish_left.remove(fish)
             if player_health <= 0:
-                exit()
+                ret = 3
     
     for fish in unspecial_fish_right:
         if player_rect.colliderect(fish):
             player_health -= 1
             unspecial_fish_right.remove(fish)
             if player_health <= 0:
-                exit()
+                ret = 3
     
     return player_health, ret
 
