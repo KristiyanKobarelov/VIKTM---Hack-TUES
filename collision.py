@@ -5,7 +5,6 @@ import math
 player_x = WIDTH // 2
 player_y = HEIGHT // 2
 
-
 def detect_collision(player_health):
     for fish in fishes_left:
         if player_rect.colliderect(fish):

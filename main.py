@@ -1,6 +1,7 @@
 from collision import *
 from camera_movement import *
 from cutscene1 import *
+from cutscene2 import *
 from specialfish import *
 from sys import exit
 
@@ -28,6 +29,7 @@ def main_gameplay():
     depth_pixels = 500  # 50 pixels = 1 meter
 
     draw_cutscene1(WINDOW)
+    draw_cutscene2(WINDOW)
 
     while True:
         for event in pygame.event.get():
