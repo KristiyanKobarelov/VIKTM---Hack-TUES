@@ -15,7 +15,10 @@ background_cutscene1_surf = pygame.transform.scale(
 boat_serf = pygame.image.load(
     os.path.join('images', 'boat.png'))
 
-player_cutscene_serf = pygame.Surface((40, 100))
+player_cutscene_down_surf = pygame.image.load('Player/vodolaz2.webp').convert_alpha()
+player_cutscene_down_surf = pygame.transform.rotozoom(player_cutscene_down_surf, 0, 0.6)
+player_cutscene_up_surf = pygame.image.load('Player/vodolaz1.webp').convert_alpha()
+player_cutscene_up_surf = pygame.transform.rotozoom(player_cutscene_up_surf, 0, 0.6)
 
 clock2 = pygame.time.Clock()
 
@@ -45,7 +48,7 @@ def draw_cutscene1(window):
         boat_width += BOAT_VEL
 
         window.blit(boat_serf, (boat_width, HEIGHT - 150))
-        window.blit(player_cutscene_serf, (boat_width + 70, HEIGHT - 180))
+        window.blit(player_cutscene_down_surf, (boat_width + 70, HEIGHT - 180))
 
         pygame.display.update()
 
@@ -68,7 +71,10 @@ def draw_cutscene1(window):
             player_x += 6
 
         window.blit(boat_serf, (boat_width, HEIGHT - 150))
-        window.blit(player_cutscene_serf, (player_x, player_y))
+        window.blit(player_cutscene_up_surf, (player_x, player_y))
+
+        if player_x >= WIDTH/2:
+            window.blit(pygame.transform.flip(player_cutscene_up_surf, 0, 1), (player_x, player_y))
 
         if player_y > HEIGHT + 150:
             window.blit(welcome_surf, (35, 120))
