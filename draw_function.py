@@ -1,5 +1,3 @@
-import pygame.transform
-
 from fish import *
 from hostile_fish import *
 
@@ -34,16 +32,12 @@ def draw(window, player_health, temp_x=0):
 
     window.blit(text_surf, (5, 5))
 
-    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
-    WINDOW.blit(new_cursor, cursor_rect)
-
     for fish in fishes_left:
         fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
     for fish in fishes_right:
         fish_surf = pygame.Surface((fish.width, fish.height))
         window.blit(fish_surf, (fish.x, fish.y))
-    
 
     for hostile_fish in hostile_fishes_left:
         hostile_fish_surf = pygame.Surface((HOSTILE_WIDTH, HOSTILE_HEIGHT))
@@ -54,7 +48,6 @@ def draw(window, player_health, temp_x=0):
         hostile_fish_surf.fill('red')
         window.blit(hostile_fish_surf, (hostile_fish.x, hostile_fish.y))
 
-    
     for fish in special_fish_left:
         fish_surf = pygame.Surface((fish.width, fish.height))
         fish_surf.fill('yellow')
@@ -63,6 +56,9 @@ def draw(window, player_health, temp_x=0):
         fish_surf = pygame.Surface((fish.width, fish.height))
         fish_surf.fill('yellow')
         window.blit(fish_surf, (fish.x, fish.y))
+
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    WINDOW.blit(new_cursor, cursor_rect)
 
     for i in range(player_health):
         if i == 0:
@@ -112,7 +108,7 @@ def start_screen(window):
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
 
-    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH/2 - 65, HEIGHT - 347))
+    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH / 2 - 65, HEIGHT - 347))
     window.blit(start_text_surf, start_text_rect)
 
     pygame.display.update()
@@ -121,4 +117,3 @@ def start_screen(window):
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             return True
-        
