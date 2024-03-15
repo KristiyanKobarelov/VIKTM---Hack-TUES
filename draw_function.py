@@ -148,11 +148,11 @@ def draw(window, player_health, depth, temp_x=0):
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
 
     if depth <= 60:
-        window.blit(depth_meter_1, (18, HEIGHT - 50))
+        window.blit(depth_meter_1, (12, HEIGHT - 50))
     elif depth <= 110:
-        window.blit(depth_meter_2, (18, HEIGHT - 50))
+        window.blit(depth_meter_2, (12, HEIGHT - 50))
     else:
-        window.blit(depth_meter_3, (18, HEIGHT - 50))
+        window.blit(depth_meter_3, (12, HEIGHT - 50))
     window.blit(depth_text_surf, depth_rect)
 
     pygame.display.update()
