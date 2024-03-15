@@ -1,14 +1,9 @@
-import pygame.image
-
-from constants import *
 from animations import *
 from sys import exit
-from hostile_fish import *
 
 background_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
 background_surf = pygame.transform.rotozoom(background_surf, 0, 0.8)
 
-pygame.font.init()
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
 text_surf = text_font.render('Health: ', False, 'Black')
 
@@ -49,6 +44,9 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     # Draw everything on screen
 
     window.blit(background_surf, (0, 0))
+
+    # pygame.draw.circle(window, 'red', (WIDTH/2, HEIGHT/2), HOSTILE_RADIUS, 5)
+    # pygame.draw.circle(window, 'red', (WIDTH / 2, HEIGHT / 2), SPECIAL_FISH_RADIUS, 5)
 
     if player_look_left == 2:
         player_surf = pygame.transform.flip(player_surf, 1, 0)
@@ -169,9 +167,9 @@ def start_screen(window):
     start_surf.fill('white')
     start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4))
 
-    start_screen_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
+    # start_screen_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
 
-    window.blit(start_screen_surf, (0, 0))
+    window.blit(background_surf, (0, 0))
     window.blit(start_surf, start_rect)
     window.blit(control_surf, control_rect)
     window.blit(quit_surf, quit_rect)

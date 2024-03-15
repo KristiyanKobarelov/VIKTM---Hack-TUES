@@ -1,4 +1,5 @@
 import pygame
+pygame.init()
 
 WIDTH, HEIGHT = 1500, 750
 
@@ -10,6 +11,8 @@ FPS = 60
 
 PLAYER_SPEED = 3
 
+BOAT_VEL = 7
+
 FISH_HEIGHT = 10
 FISH_WIDTH = 20
 FISH_VEL = 4
@@ -17,9 +20,9 @@ FISH_VEL = 4
 HOSTILE_HEIGHT = 50
 HOSTILE_WIDTH = 150
 HOSTILE_VEL = 2
-HOSTILE_RADIUS = 250
+HOSTILE_RADIUS = 500
 
-SPECIAL_FISH_RADIUS = 250
+SPECIAL_FISH_RADIUS = 300
 SPECIAL_FISH_VEL = 7
 SPECIAL_FISH_HEIGHT = 30
 SPECIAL_FISH_WIDTH = 60
@@ -39,10 +42,8 @@ unspecial_fish_right = []
 hostile_fishes_right = []
 hostile_fishes_left = []
 
-BOAT_VEL = 7
-
 PLAYER_WIDTH = 100
-PLAYER_HEIGHT = 40
+PLAYER_HEIGHT = 50
 
 # player_surf = pygame.Surface((100, 40))
 # player_surf = pygame.transform.scale(pygame.image.load('Player/diver.webp').convert_alpha(), (100, 40))

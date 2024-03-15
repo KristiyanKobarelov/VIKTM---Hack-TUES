@@ -1,5 +1,5 @@
-from constants import *
 from specialfish import *
+
 
 def unspecial_fish_movement():
     for fish in unspecial_fish_left:

@@ -1,13 +1,14 @@
+from draw_function import *
 from collision import *
 from camera_movement import *
 from cutscene1 import *
 from cutscene2 import *
-from specialfish import *
 from fish import *
-from sys import exit
+from hostile_fish import *
 from screenshot import *
 from unspecial_fish import *
-
+# from constants import *
+from sys import exit
 
 pygame.init()
 
@@ -15,7 +16,8 @@ pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
 
-player_surf = pygame.transform.scale(pygame.image.load('Player/diver.webp').convert_alpha(), (100, 40))
+player_surf = pygame.transform.scale(
+    pygame.image.load('Player/diver.webp').convert_alpha(), (PLAYER_WIDTH, PLAYER_HEIGHT))
 player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
 
@@ -42,7 +44,7 @@ def main():
 
     depth_pixels = 500  # 50 pixels = 1 meter
 
-    draw_cutscene1(WINDOW)
+    # draw_cutscene1(WINDOW)
     draw_cutscene2(WINDOW)
 
     while True:

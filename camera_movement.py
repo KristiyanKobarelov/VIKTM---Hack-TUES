@@ -1,4 +1,4 @@
-from draw_function import *
+from constants import *
 
 
 def player_movement(depth, player_look):

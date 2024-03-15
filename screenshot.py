@@ -1,5 +1,5 @@
-import pygame
 from constants import *
+
 
 def capture_fish():
     ret = 0
@@ -15,4 +15,5 @@ def capture_fish():
             ret = 1
             unspecial_fish_right.append(fish)
             special_fish_right.remove(fish)
+
     return ret

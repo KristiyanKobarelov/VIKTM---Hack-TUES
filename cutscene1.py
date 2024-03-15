@@ -1,14 +1,9 @@
 import os
-
-import pygame.time
-
 from constants import *
-
-pygame.init()
 
 welcome_text = pygame.font.Font('Font/PixelScriptRegular-4B83W.ttf', 75)
 welcome_surf = welcome_text.render('Secrets of The Deep', False, 'Black')
-welcome_rect = welcome_surf.get_rect(bottomleft=(WIDTH/2 - WIDTH/4, HEIGHT/2))
+welcome_rect = welcome_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
 
 background_cutscene1_surf = pygame.transform.scale(
     pygame.image.load(os.path.join('images', 'ocean_background.png')), (WIDTH, HEIGHT))
@@ -21,18 +16,16 @@ player_cutscene_down_surf = pygame.transform.rotozoom(player_cutscene_down_surf,
 player_cutscene_up_surf = pygame.image.load('Player/vodolaz1.webp').convert_alpha()
 player_cutscene_up_surf = pygame.transform.rotozoom(player_cutscene_up_surf, 0, 0.6)
 
+screen_fade = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
+screen_fade = pygame.transform.rotozoom(screen_fade, 0, 0.8)
+
 clock2 = pygame.time.Clock()
 
 
-def redraw_window(window):
-    window.fill((255, 255, 255))
-
-
 def fade(window):
-    screen_fade = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
     for alpha in range(0, 300):
         screen_fade.set_alpha(alpha)
-        redraw_window(window)
+        window.fill((255, 255, 255))
         window.blit(screen_fade, (0, 0))
         pygame.display.update()
         pygame.time.delay(5)
@@ -71,11 +64,12 @@ def draw_cutscene1(window):
             player_x += 6
 
         window.blit(boat_serf, (boat_width, HEIGHT - 150))
+
         if player_x < WIDTH/2:
             window.blit(player_cutscene_up_surf, (player_x, player_y))
 
         elif player_x >= WIDTH/2:
-            window.blit(pygame.transform.flip(player_cutscene_up_surf, 0, 1), (player_x, player_y))
+            window.blit(pygame.transform.flip(player_cutscene_up_surf, 1, 1), (player_x, player_y))
 
         if player_y > HEIGHT + 150:
             window.blit(welcome_surf, welcome_rect)
