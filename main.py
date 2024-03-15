@@ -43,7 +43,7 @@ def main_gameplay():
                 pygame.quit()
                 exit()
 
-        if game_active:
+        if game_active ==1:
             h = clock.tick(FPS)
             fish_timer += h
             hostile_fish_timer += h
@@ -71,8 +71,11 @@ def main_gameplay():
 
             draw(WINDOW, player_health)
 
-        else:
+        elif game_active == 0:
             game_active = start_screen(WINDOW)
+
+        elif game_active == 2:
+            game_active = controls_menu(WINDOW)
 
 
 if __name__ == '__main__':
