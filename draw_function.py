@@ -115,11 +115,11 @@ def start_screen(window):
     start_surf = pygame.Surface((200, 60))
 
     control_surf = pygame.Surface((200, 65))
-    control_rect = control_surf.get_rect(topleft = (WIDTH / 2 - 200 / 2, HEIGHT - 240))
+    control_rect = control_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 240))
     control_surf.fill('white')
 
     quit_surf = pygame.Surface((200, 65))
-    quit_rect = quit_surf.get_rect(topleft = (WIDTH / 2 - 200 / 2, HEIGHT - 130))
+    quit_rect = quit_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 130))
     quit_surf.fill('white')
 
     start_surf.fill('white')
@@ -137,34 +137,35 @@ def start_screen(window):
 
     window.blit(start_text_surf, start_text_rect)
 
-    quitbutton_text_rect = quitbutton_text_surf.get_rect(topleft = (WIDTH/2 - 42, HEIGHT - 115))
+    quitbutton_text_rect = quitbutton_text_surf.get_rect(topleft=(WIDTH/2 - 42, HEIGHT - 115))
     window.blit(quitbutton_text_surf,quitbutton_text_rect)
 
-    cntrbutoton_text_rect = cntrbutton_text_surf.get_rect(topleft = (WIDTH/2 - 82, HEIGHT - 225))
+    cntrbutoton_text_rect = cntrbutton_text_surf.get_rect(topleft=(WIDTH/2 - 82, HEIGHT - 225))
     window.blit(cntrbutton_text_surf, cntrbutoton_text_rect)
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
-    WINDOW.blit(new_cursor, cursor_rect)
+    window.blit(new_cursor, cursor_rect)
 
     pygame.display.update()
 
     mouse_pos = pygame.mouse.get_pos()
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            return True
+            return 1
 
     if control_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            return True
+            return 2
 
     if quit_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             pygame.quit()
             exit()
 
+
 def controls_menu(window):
-    controls_text_rect = controls_text_surf.get_rect(center = (WIDTH/2, HEIGHT - 200))
+    controls_text_rect = controls_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 200))
     window.blit(controls_text_surf, controls_text_rect)
 
-    moving_text_rect = moving_text_surf.get_rect(center = (WIDTH/2, HEIGHT - 150))
+    moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 150))
     window.blit(moving_text_surf, moving_text_rect)
