@@ -12,45 +12,6 @@ pygame.font.init()
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
 text_surf = text_font.render('Health: ', False, 'Black')
 
-start_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
-start_text_surf = start_text.render('START', False, 'Black')
-
-controls_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
-controls_text_surf = controls_text.render('Controls:', False, 'Black')
-
-moving_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
-moving_text_surf = moving_text.render('Moving - WASD or Arrow keys', False, 'Black')
-
-photo_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
-photo_text_surf = photo_text.render('Taking photos - Left Mouse Button Click', False, 'Black')
-
-cntrbutoton_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
-cntrbutton_text_surf = cntrbutoton_text.render('Controls', False, 'Black')
-
-quitbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
-quitbutton_text_surf = quitbutton_text.render('Quit', False, 'Black')
-
-backbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
-backbutton_text_surf = backbutton_text.render('Back', False, 'Black')
-
-endscreen_text = pygame.font.Font('Font/Pixeltype.ttf', 70)
-endscreen_text_surf = endscreen_text.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
-
-endres_text = pygame.font.Font('Font/Pixeltype.ttf', 50)
-endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
-
-endmenu_text = pygame.font.Font('Font/Pixeltype.ttf', 45)
-endmenu_text_surf = endmenu_text.render('Main Menu', False, BACKGROUND_COLOR)
-
-endscore_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
-endscore_text_surf = endscore_text.render('Score:', False, BACKGROUND_COLOR)
-
-endmeters_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
-endmeters_text_surf = endmeters_text.render('Meters:', False, BACKGROUND_COLOR)
-
-jellyfish_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
-jellyfish_text_surf = jellyfish_text.render('(Jellyfish)', False, 'black')
-
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -146,8 +107,9 @@ def draw(window, player_health, depth, temp_x=0):
     elif player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
-    depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
-    depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
+    # depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
+    # depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
+    depth_text_surf = text_font.render(f'{depth}', 0, 'White')
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
 
     if depth <= 60:
@@ -162,18 +124,30 @@ def draw(window, player_health, depth, temp_x=0):
 
 
 def start_screen(window):
-    start_surf = pygame.Surface((200, 60))
+    start_surf = pygame.Surface((200, 65))
+
+    # cntrbutoton_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
+    # cntrbutton_text_surf = cntrbutoton_text.render('Controls', False, 'Black')
+    cntrbutton_text_surf = text_font.render('Controls', False, 'Black')
+
+    # quitbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+    # quitbutton_text_surf = quitbutton_text.render('Quit', False, 'Black')
+    quitbutton_text_surf = text_font.render('Quit', False, 'Black')
+
+    # start_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+    # start_text_surf = start_text.render('START', False, 'Black')
+    start_text_surf = text_font.render('START', False, 'Black')
 
     control_surf = pygame.Surface((200, 65))
-    control_rect = control_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 240))
+    control_rect = control_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
     control_surf.fill('white')
 
     quit_surf = pygame.Surface((200, 65))
-    quit_rect = quit_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 130))
+    quit_rect = quit_surf.get_rect(center=(WIDTH/2, HEIGHT/2 + HEIGHT/4))
     quit_surf.fill('white')
 
     start_surf.fill('white')
-    start_rect = start_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 340))
+    start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4))
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill(BACKGROUND_COLOR)
@@ -183,14 +157,14 @@ def start_screen(window):
     window.blit(control_surf, control_rect)
     window.blit(quit_surf, quit_rect)
 
-    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH / 2 - 65, HEIGHT - 327))
+    start_text_rect = start_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4))
 
     window.blit(start_text_surf, start_text_rect)
 
-    quitbutton_text_rect = quitbutton_text_surf.get_rect(topleft=(WIDTH/2 - 42, HEIGHT - 115))
+    quitbutton_text_rect = quitbutton_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 + HEIGHT/4))
     window.blit(quitbutton_text_surf,quitbutton_text_rect)
 
-    cntrbutoton_text_rect = cntrbutton_text_surf.get_rect(topleft=(WIDTH/2 - 82, HEIGHT - 225))
+    cntrbutoton_text_rect = cntrbutton_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
     window.blit(cntrbutton_text_surf, cntrbutoton_text_rect)
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
@@ -220,24 +194,44 @@ def start_screen(window):
 def controls_menu(window):
     window.blit(background_surf, (0, 0))
 
-    controls_text_rect = controls_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 350))
+    # controls_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+    # controls_text_surf = controls_text.render('Controls:', False, 'Black')
+    controls_text_surf = text_font.render('Controls:', False, 'Black')
+
+    # moving_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+    # moving_text_surf = moving_text.render('Moving - WASD or Arrow keys', False, 'Black')
+    moving_text_surf = text_font.render('Moving - WASD or Arrow keys', False, 'Black')
+
+    # jellyfish_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
+    # jellyfish_text_surf = jellyfish_text.render('(Jellyfish)', False, 'black')
+    jellyfish_text_surf = text_font.render('(Jellyfish)', False, 'black')
+
+    # photo_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
+    # photo_text_surf = photo_text.render('Taking photos - Left Mouse Button Click', False, 'Black')
+    photo_text_surf = text_font.render('Taking photos - Left Mouse Button Click', False, 'Black')
+
+    # backbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+    # backbutton_text_surf = backbutton_text.render('Back', False, 'Black')
+    backbutton_text_surf = text_font.render('Back', False, 'Black')
+
+    controls_text_rect = controls_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4 - HEIGHT/8))
     window.blit(controls_text_surf, controls_text_rect)
 
-    jellyfish_text_rect = jellyfish_text_surf.get_rect(topleft = (WIDTH - 350, HEIGHT - 150))
+    jellyfish_text_rect = jellyfish_text_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2 + HEIGHT/4 + HEIGHT/8))
     window.blit(jellyfish_text_surf, jellyfish_text_rect)
 
-    moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 250))
+    moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4 + HEIGHT/8))
     window.blit(moving_text_surf, moving_text_rect)
 
-    photo_text_rect = photo_text_surf.get_rect(center = (WIDTH / 2, HEIGHT - 180))
+    photo_text_rect = photo_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 + HEIGHT/4 - HEIGHT/8))
     window.blit(photo_text_surf, photo_text_rect)
 
     back_surf = pygame.Surface((200, 65))
-    back_rect = back_surf.get_rect(topleft=(WIDTH - 750,  HEIGHT - 120))
+    back_rect = back_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2 + HEIGHT/4 + HEIGHT/8))
     back_surf.fill('white')
     window.blit(back_surf, back_rect)
 
-    backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH - 650, HEIGHT - 85))
+    backbutton_text_rect = backbutton_text_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2 + HEIGHT/4 + HEIGHT/8))
     window.blit(backbutton_text_surf, backbutton_text_rect)
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
@@ -255,43 +249,67 @@ def controls_menu(window):
 
 
 def death_screen(window, depth, score):
-    background_surf_2 = pygame.surface.Surface((800, 400))
+    background_surf_2 = pygame.surface.Surface((WIDTH, HEIGHT))
     background_surf_2.fill('black')
     window.blit(background_surf_2, (0, 0))
 
-    depth_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
-    depth_text_surf = depth_text.render(f'{depth} m', False, BACKGROUND_COLOR)
-    depth_text_rect = depth_text_surf.get_rect(midleft = (WIDTH - 390, HEIGHT - 112))
-    window.blit(depth_text_surf, depth_text_rect)
+    # depth_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    # depth_text_surf = depth_text.render(f'{depth} m', False, BACKGROUND_COLOR)
+    # depth_text_surf = text_font.render(f'{depth}', False, BACKGROUND_COLOR)
 
-    score_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
-    score_text_surf = score_text.render(f'{score}', False, BACKGROUND_COLOR)
-    score_text_rect = score_text_surf.get_rect(midleft = (WIDTH - 405, HEIGHT - 218))
-    window.blit(score_text_surf, score_text_rect)
+    # depth_text_rect = depth_text_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2 + HEIGHT/4))
+    # window.blit(depth_text_surf, depth_text_rect)
+
+    # score_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    # score_text_surf = score_text.render(f'{score}', False, BACKGROUND_COLOR)
+    # score_text_surf = text_font.render(f'{score}', False, BACKGROUND_COLOR)
+
+    # score_text_rect = score_text_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2))
+    # window.blit(score_text_surf, score_text_rect)
+
+    # endscreen_text = pygame.font.Font('Font/Pixeltype.ttf', 70)
+    # endscreen_text_surf = endscreen_text.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
+    endscreen_text_surf = text_font.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
+
+    # endres_text = pygame.font.Font('Font/Pixeltype.ttf', 50)
+    # endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
+    endres_text_surf = text_font.render('Restart', False, BACKGROUND_COLOR)
+
+    # endmenu_text = pygame.font.Font('Font/Pixeltype.ttf', 45)
+    # endmenu_text_surf = endmenu_text.render('Main Menu', False, BACKGROUND_COLOR)
+    endmenu_text_surf = text_font.render('Main Menu', False, BACKGROUND_COLOR)
+
+    # endscore_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    # endscore_text_surf = endscore_text.render('Score:', False, BACKGROUND_COLOR)
+    endscore_text_surf = text_font.render(f'Score: {score}', False, BACKGROUND_COLOR)
+
+    # endmeters_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    # endmeters_text_surf = endmeters_text.render('Meters:', False, BACKGROUND_COLOR)
+    endmeters_text_surf = text_font.render(f'Meters: {depth}', False, BACKGROUND_COLOR)
 
     menubutton_surf = pygame.Surface((150, 60))
     menubutton_surf.fill('White')
-    menubutton_rect = menubutton_surf.get_rect(topleft = (WIDTH - 200, HEIGHT - 150))
+    menubutton_rect = menubutton_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2 + HEIGHT/4))
     window.blit(menubutton_surf, menubutton_rect)
 
     resbutton_surf = pygame.Surface((150, 60))
     resbutton_surf.fill('white')
-    resbutton_rect = resbutton_surf.get_rect(topleft=(WIDTH - 200, HEIGHT - 250))
+    resbutton_rect = resbutton_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2))
     window.blit(resbutton_surf, resbutton_rect)
 
-    endscreen_text_rect = endscreen_text_surf.get_rect(center=(WIDTH - 400, HEIGHT - 350))
+    endscreen_text_rect = endscreen_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4))
     window.blit(endscreen_text_surf, endscreen_text_rect)
 
-    endmenu_text_rect = endmenu_text_surf.get_rect(center=(WIDTH - 125, HEIGHT - 115))
+    endmenu_text_rect = endmenu_text_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2 + HEIGHT/4))
     window.blit(endmenu_text_surf, endmenu_text_rect)
 
-    endres_text_rect = endres_text_surf.get_rect(topleft=(WIDTH - 183, HEIGHT - 230))
+    endres_text_rect = endres_text_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2))
     window.blit(endres_text_surf, endres_text_rect)
 
-    endscore_text_rect = endscore_text_surf.get_rect(topleft=(WIDTH - 550, HEIGHT - 240))
+    endscore_text_rect = endscore_text_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2))
     window.blit(endscore_text_surf, endscore_text_rect)
 
-    endmeters_text_rect = endmeters_text_surf.get_rect(topleft=(WIDTH - 550, HEIGHT - 135))
+    endmeters_text_rect = endmeters_text_surf.get_rect(center=(WIDTH/2 - WIDTH/4, HEIGHT/2 + HEIGHT/4))
     window.blit(endmeters_text_surf, endmeters_text_rect)
 
     mouse_pos = pygame.mouse.get_pos()
@@ -311,4 +329,3 @@ def death_screen(window, depth, score):
     pygame.display.update()
 
     return ret_3
-
