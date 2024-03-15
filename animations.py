@@ -1,4 +1,5 @@
-import pygame
+from constants import *
+pygame.init()
 
 medusa_1 = pygame.image.load('Medusa/jellyfish-large1.png').convert_alpha()
 medusa_1 = pygame.transform.rotozoom(medusa_1, 0, 1.5)
