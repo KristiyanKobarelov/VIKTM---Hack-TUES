@@ -252,7 +252,7 @@ def death_screen(window):
 
     if menubutton_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            ret_3 = 0
+            ret_3 = 5
 
     pygame.display.update()
 
