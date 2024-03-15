@@ -284,7 +284,7 @@ def death_screen(window, depth, score):
 
     # endscreen_text = pygame.font.Font('Font/Pixeltype.ttf', 70)
     # endscreen_text_surf = endscreen_text.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
-    endscreen_text_surf = text_font.render('You Lose 💀     to pay respects', False, BACKGROUND_COLOR)
+    endscreen_text_surf = text_font.render('You DIED', False, 'red')
 
     # endres_text = pygame.font.Font('Font/Pixeltype.ttf', 50)
     # endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
