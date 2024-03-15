@@ -12,7 +12,7 @@
     font-size: 20px;
     top: 22%;
     left: 5%;
-    color: chartreuse;
+    color: rgb(232, 214, 19);
 }
 
 .upper_part {
@@ -76,7 +76,7 @@
 
 .mechanics {
     position: absolute;
-    color: chartreuse;
+    color: rgb(232, 214, 19);
     top: 80%;
     left: 5%;
     font-size: 20px;

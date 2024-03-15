@@ -3,6 +3,7 @@ from camera_movement import *
 from cutscene1 import *
 from cutscene2 import *
 from specialfish import *
+from fish import *
 from sys import exit
 from screenshot import *
 
