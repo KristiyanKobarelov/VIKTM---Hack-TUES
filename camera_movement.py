@@ -20,6 +20,11 @@ def player_movement(depth):
         for fish in special_fish_right:
             fish.y += PLAYER_SPEED
 
+        for fish in unspecial_fish_left:
+            fish.x -= PLAYER_SPEED
+        for fish in unspecial_fish_right:
+            fish.x -= PLAYER_SPEED
+
         depth -= 1
 
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
@@ -38,6 +43,11 @@ def player_movement(depth):
         for fish in special_fish_right:
             fish.y -= PLAYER_SPEED
 
+        for fish in unspecial_fish_left:
+            fish.x -= PLAYER_SPEED
+        for fish in unspecial_fish_right:
+            fish.x -= PLAYER_SPEED
+
         depth += 1
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
@@ -55,6 +65,11 @@ def player_movement(depth):
             fish.x += PLAYER_SPEED
         for fish in special_fish_right:
             fish.x += PLAYER_SPEED
+        
+        for fish in unspecial_fish_left:
+            fish.x -= PLAYER_SPEED
+        for fish in unspecial_fish_right:
+            fish.x -= PLAYER_SPEED
 
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         for fish in fishes_left:
@@ -70,6 +85,11 @@ def player_movement(depth):
         for fish in special_fish_left:
             fish.x -= PLAYER_SPEED
         for fish in special_fish_right:
+            fish.x -= PLAYER_SPEED
+
+        for fish in unspecial_fish_left:
+            fish.x -= PLAYER_SPEED
+        for fish in unspecial_fish_right:
             fish.x -= PLAYER_SPEED
             
     return depth

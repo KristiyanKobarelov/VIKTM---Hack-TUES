@@ -4,6 +4,7 @@ from cutscene1 import *
 from cutscene2 import *
 from specialfish import *
 from sys import exit
+from screenshot import *
 
 pygame.init()
 
@@ -21,23 +22,28 @@ def main_gameplay():
 
     add_fish = 500
     add_hostile_fish = 2000
-    add_special_fish = 5000
+    add_special_fish = 500
 
     player_health = 7
 
-    game_active = 0
+    points = 0
+
+    game_active = False
     depth_pixels = 500  # 50 pixels = 1 meter
 
-    # draw_cutscene1(WINDOW)
-    # draw_cutscene2(WINDOW)
+    draw_cutscene1(WINDOW)
+    draw_cutscene2(WINDOW)
 
     while True:
         for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                points += capture_fish()
+            print(points)
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
 
-        if game_active == 1:
+        if game_active ==1:
             h = clock.tick(FPS)
             fish_timer += h
             hostile_fish_timer += h
