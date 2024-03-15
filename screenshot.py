@@ -14,5 +14,5 @@ def capture_fish():
         if fish.collidepoint(mouse_pos):
             ret = 1
             unspecial_fish_right.append(fish)
-            special_fish_right.ramove(fish)
+            special_fish_right.remove(fish)
     return ret
