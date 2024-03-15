@@ -59,5 +59,4 @@ def detect_collision(player_health):
             unspecial_fish_right.remove(fish)
             if player_health <= 0:
                 exit()
-
     return player_health

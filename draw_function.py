@@ -221,7 +221,8 @@ def controls_menu(window):
     return ret_2
 
 def death_screen(window):
-    background_surf.fill('black')
+    background_surf_2 = pygame.surface.Surface((800, 400))
+    background_surf_2.fill('black')
     window.blit(background_surf, (0, 0))
 
     menubutton_surf = pygame.Surface((150, 60))
