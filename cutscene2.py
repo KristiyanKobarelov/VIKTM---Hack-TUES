@@ -24,7 +24,7 @@ def draw_cutscene2(window):
         window.blit(player_surf, (WIDTH/2 - PLAYER_WIDTH/2, player_y - PLAYER_SPEED/2))
         window.blit(Golden_Fish, (WIDTH/2 - GOLDEN_FISH_WIDTH/2, HEIGHT / 2 + golden_fish_y))
 
-        if golden_fish_y == HEIGHT + 100:
+        if golden_fish_y >= HEIGHT + 100:
             break
 
         pygame.display.update()
