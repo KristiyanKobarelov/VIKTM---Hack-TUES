@@ -248,10 +248,20 @@ def controls_menu(window):
     return ret_2
 
 
-def death_screen(window):
+def death_screen(window, depth, score):
     background_surf_2 = pygame.surface.Surface((800, 400))
     background_surf_2.fill('black')
     window.blit(background_surf_2, (0, 0))
+
+    depth_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    depth_text_surf = depth_text.render(f'{depth}', False, BACKGROUND_COLOR)
+    depth_text_rect = depth_text_surf.get_rect(midleft = (WIDTH - 390, HEIGHT - 112))
+    window.blit(depth_text_surf, depth_text_rect)
+
+    score_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+    score_text_surf = score_text.render(f'{score}', False, BACKGROUND_COLOR)
+    score_text_rect = score_text_surf.get_rect(midleft = (WIDTH - 405, HEIGHT - 218))
+    window.blit(score_text_surf, score_text_rect)
 
     menubutton_surf = pygame.Surface((150, 60))
     menubutton_surf.fill('White')
