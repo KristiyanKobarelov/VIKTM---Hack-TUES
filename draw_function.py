@@ -31,11 +31,13 @@ depth_meter_2 = pygame.transform.rotozoom(depth_meter_2, 0, 0.15)
 depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
 depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
 
-blue_fish = pygame.image.load('Normal_fishes/fish_blue.webp').convert_alpha()
+blue_fish = pygame.transform.scale(
+    pygame.image.load('Normal_fishes/fish_blue.png').convert_alpha(), (3*FISH_WIDTH, 3*FISH_HEIGHT))
 blue_fish = pygame.transform.flip(blue_fish, 1, 0)
 blue_fish = pygame.transform.rotozoom(blue_fish, 0, 0.5)
 
-green_fish = pygame.image.load('Normal_fishes/fish_green.webp').convert_alpha()
+green_fish = pygame.transform.scale(
+    pygame.image.load('Normal_fishes/fish_green.png').convert_alpha(), (3*FISH_WIDTH, 3*FISH_HEIGHT))
 green_fish = pygame.transform.rotozoom(green_fish, 0, 0.5)
 
 
