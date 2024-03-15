@@ -1,6 +1,5 @@
 import random
 import math
-import time
 from constants import *
 
 player_x = WIDTH // 2
@@ -51,15 +50,14 @@ def hostile_fish_movement():
                 hostile_fish.y += 1
         else:
             hostile_fish.x += HOSTILE_VEL
-            if hostile_fish.x > WIDTH + 100:
+            if hostile_fish.x > WIDTH + 100 and hostile_fish in hostile_fishes_left:
                 hostile_fishes_left.remove(hostile_fish)
-            elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
+            elif (hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100) and hostile_fish in hostile_fishes_left:
                 hostile_fishes_left.remove(hostile_fish)
 
-        if hostile_fish.x > WIDTH//2:
+        if hostile_fish.x > WIDTH//2 and hostile_fish in hostile_fishes_left:
             hostile_fishes_right.append(hostile_fish)
             hostile_fishes_left.remove(hostile_fish)
-
 
     for hostile_fish in hostile_fishes_right:
         if calculate_radius(hostile_fish):
@@ -74,11 +72,11 @@ def hostile_fish_movement():
                 hostile_fish.y += 1
         else:
             hostile_fish.x -= HOSTILE_VEL
-            if hostile_fish.x < -100:
+            if hostile_fish.x < -100 and hostile_fish in hostile_fishes_right:
                 hostile_fishes_right.remove(hostile_fish)
-            elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
+            elif (hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100) and hostile_fish in hostile_fishes_right:
                 hostile_fishes_right.remove(hostile_fish)
 
-        if hostile_fish.x < WIDTH//2:
+        if hostile_fish.x < WIDTH//2 and hostile_fish in hostile_fishes_right:
             hostile_fishes_left.append(hostile_fish)
             hostile_fishes_right.remove(hostile_fish)

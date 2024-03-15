@@ -42,6 +42,12 @@ endres_text_surf = endres_text.render('Restart', False, BACKGROUND_COLOR)
 endmenu_text = pygame.font.Font('Font/Pixeltype.ttf', 45)
 endmenu_text_surf = endmenu_text.render('Main Menu', False, BACKGROUND_COLOR)
 
+endscore_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+endscore_text_surf = endscore_text.render('Score:', False, BACKGROUND_COLOR)
+
+endmeters_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
+endmeters_text_surf = endmeters_text.render('Meters:', False, BACKGROUND_COLOR)
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -49,6 +55,8 @@ broken_heart_surf = pygame.transform.rotozoom(broken_heart_surf, 0, 0.3)
 
 new_cursor = pygame.image.load('Cursor/noun-viewfinder-92699.png').convert_alpha()
 new_cursor = pygame.transform.rotozoom(new_cursor, 0, 0.1)
+newer_cursor = pygame.image.load('Cursor/Cursor_2_blue.png').convert_alpha()
+newer_cursor = pygame.transform.rotozoom(newer_cursor, 0, 0.1)
 pygame.mouse.set_visible(False)
 
 depth_meter_1 = pygame.image.load('Depth/meter_counter-1.webp').convert_alpha()
@@ -264,11 +272,17 @@ def death_screen(window):
     endres_text_rect = endres_text_surf.get_rect(topleft=(WIDTH - 183, HEIGHT - 230))
     window.blit(endres_text_surf, endres_text_rect)
 
-    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
-    WINDOW.blit(new_cursor, cursor_rect)
+    endscore_text_rect = endscore_text_surf.get_rect(topleft=(WIDTH - 550, HEIGHT - 240))
+    window.blit(endscore_text_surf, endscore_text_rect)
+
+    endmeters_text_rect = endmeters_text_surf.get_rect(topleft=(WIDTH - 550, HEIGHT - 135))
+    window.blit(endmeters_text_surf, endmeters_text_rect)
 
     mouse_pos = pygame.mouse.get_pos()
     ret_3 = 3
+
+    cursor_rect = newer_cursor.get_rect(center=pygame.mouse.get_pos())
+    window.blit(newer_cursor, cursor_rect)
 
     if resbutton_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:

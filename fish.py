@@ -1,5 +1,4 @@
 import random
-import time
 from constants import *
 
 
@@ -25,9 +24,9 @@ def fish_generator():
 def fish_movement():
     for fish in fishes_left:
         fish.x += FISH_VEL
-        if fish.x > WIDTH:
+        if fish.x > WIDTH and fish:
             fishes_left.remove(fish)
     for fish in fishes_right:
         fish.x -= FISH_VEL
-        if fish.x < -100:
+        if fish.x < -100 and fish:
             fishes_right.remove(fish)
