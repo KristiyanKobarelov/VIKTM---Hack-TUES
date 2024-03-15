@@ -14,7 +14,7 @@ pygame.display.set_caption('Secrets of The Deep')
 clock = pygame.time.Clock()
 
 
-def main_gameplay():
+def main():
     fish_timer = 0
     hostile_fish_timer = 0
     special_fish_timer = 0
@@ -28,7 +28,15 @@ def main_gameplay():
     points = 0
 
     game_active = 0
+    # 0 - main menu
+    # 1 - gameplay
+    # 2 - controls
+    # 3 - death menu
+
     depth_pixels = 500  # 50 pixels = 1 meter
+
+    draw_cutscene1(WINDOW)
+    draw_cutscene2(WINDOW)
 
     while True:
         for event in pygame.event.get():
@@ -77,15 +85,38 @@ def main_gameplay():
         elif game_active == 3:
             game_active = death_screen(WINDOW)
 
-        elif game_active == 4:
-            return 0
+        elif game_active >= 4:
+            fishes_right.clear()
+            fishes_left.clear()
+
+            special_fish_right.clear()
+            special_fish_left.clear()
+
+            unspecial_fish_left.clear()
+            unspecial_fish_right.clear()
+
+            hostile_fishes_right.clear()
+            hostile_fishes_left.clear()
+
+            fish_timer = 0
+            hostile_fish_timer = 0
+            special_fish_timer = 0
+
+            add_fish = 500
+            add_hostile_fish = 2000
+            add_special_fish = 500
+
+            player_health = 7
+
+            points = 0
+
+            if game_active == 5:
+                game_active = 0
+            else:
+                game_active = 1
+
+            depth_pixels = 500
 
 
 if __name__ == '__main__':
-    # draw_cutscene1(WINDOW)
-    # draw_cutscene2(WINDOW)
-
-    stop = 0
-    while stop == 0:
-        stop = main_gameplay()
-        print(1)
+    main()

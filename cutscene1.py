@@ -20,7 +20,7 @@ player_cutscene_serf = pygame.Surface((40, 100))
 clock2 = pygame.time.Clock()
 
 
-def redrawWindow(window):
+def redraw_window(window):
     window.fill((255, 255, 255))
 
 
@@ -29,7 +29,7 @@ def fade(window):
     screen_fade.fill(BACKGROUND_COLOR)
     for alpha in range(0, 300):
         screen_fade.set_alpha(alpha)
-        redrawWindow(window)
+        redraw_window(window)
         window.blit(screen_fade, (0, 0))
         pygame.display.update()
         pygame.time.delay(5)
