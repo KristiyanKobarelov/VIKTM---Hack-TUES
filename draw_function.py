@@ -1,9 +1,8 @@
-import pygame.transform
+from constants import *
 from animations import *
 from sys import exit
 from hostile_fish import *
 
-player_surf.fill('green')
 
 background_surf = pygame.Surface((WIDTH, HEIGHT))
 background_surf.fill(BACKGROUND_COLOR)
@@ -40,10 +39,13 @@ green_fish = pygame.image.load('Normal_fishes/fish_green.webp').convert_alpha()
 green_fish = pygame.transform.rotozoom(green_fish, 0, 0.5)
 
 
-def draw(window, player_health, depth, temp_x=0):
+def draw(window, player_health, depth, score, player_surf, player_rect, player_look_left, temp_x=0):
     # Draw everything on screen
 
     window.blit(background_surf, (0, 0))
+
+    if player_look_left == 2:
+        player_surf = pygame.transform.flip(player_surf, 1, 0)
 
     window.blit(player_surf, player_rect)
 
@@ -99,23 +101,29 @@ def draw(window, player_health, depth, temp_x=0):
 
     if player_health < 1:
         window.blit(broken_heart_surf, (70, -45))
-    elif player_health < 2:
+    if player_health < 2:
         window.blit(broken_heart_surf, (85, -45))
-    elif player_health < 3:
+    if player_health < 3:
         window.blit(broken_heart_surf, (100, -45))
-    elif player_health < 4:
+    if player_health < 4:
         window.blit(broken_heart_surf, (115, -45))
-    elif player_health < 5:
+    if player_health < 5:
         window.blit(broken_heart_surf, (130, -45))
-    elif player_health < 6:
+    if player_health < 6:
         window.blit(broken_heart_surf, (145, -45))
-    elif player_health < 7:
+    if player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
     # depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
     # depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
     depth_text_surf = text_font.render(f'{depth}', 0, 'White')
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
+
+
+
+    score_text_surf = text_font.render(f'Score: {score}', 0, 'Black')
+    score_rect = score_text_surf.get_rect(midright=(WIDTH - 10, 25))
+    window.blit(score_text_surf, score_rect)
 
     if depth <= 60:
         window.blit(depth_meter_1, (12, HEIGHT - 50))
