@@ -51,8 +51,17 @@ new_cursor = pygame.image.load('Cursor/noun-viewfinder-92699.png').convert_alpha
 new_cursor = pygame.transform.rotozoom(new_cursor, 0, 0.1)
 pygame.mouse.set_visible(False)
 
+depth_meter_1 = pygame.image.load('Depth/meter_counter-1.webp').convert_alpha()
+depth_meter_1 = pygame.transform.rotozoom(depth_meter_1, 0, 0.15)
 
-def draw(window, player_health, temp_x=0):
+depth_meter_2 = pygame.image.load('Depth/meter_counter-2.webp').convert_alpha()
+depth_meter_2 = pygame.transform.rotozoom(depth_meter_2, 0, 0.15)
+
+depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
+depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
+
+
+def draw(window, player_health, depth, temp_x=0):
     # Draw everything on screen
 
     window.blit(background_surf, (0, 0))
@@ -125,6 +134,18 @@ def draw(window, player_health, temp_x=0):
         window.blit(broken_heart_surf, (145, -45))
     elif player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
+
+    depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
+    depth_text_surf = depth_text.render(f'{depth}', 0, 'White')
+    depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
+
+    if depth <= 60:
+        window.blit(depth_meter_1, (18, HEIGHT - 50))
+    elif depth <= 110:
+        window.blit(depth_meter_2, (18, HEIGHT - 50))
+    else:
+        window.blit(depth_meter_3, (18, HEIGHT - 50))
+    window.blit(depth_text_surf, depth_rect)
 
     pygame.display.update()
 
@@ -242,6 +263,9 @@ def death_screen(window):
 
     endres_text_rect = endres_text_surf.get_rect(topleft=(WIDTH - 183, HEIGHT - 230))
     window.blit(endres_text_surf, endres_text_rect)
+
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    WINDOW.blit(new_cursor, cursor_rect)
 
     mouse_pos = pygame.mouse.get_pos()
     ret_3 = 3

@@ -70,11 +70,9 @@ def main():
 
             depth_pixels = player_movement(depth_pixels)
 
-            print(round(depth_pixels/50))
-
             player_health, game_active = detect_collision(player_health)
 
-            draw(WINDOW, player_health)
+            draw(WINDOW, player_health, round(depth_pixels/50))
 
         elif game_active == 0:
             game_active = start_screen(WINDOW)
