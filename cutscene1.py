@@ -1,6 +1,10 @@
 import os
+
 from constants import *
 pygame.init()
+
+welcome_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+welcome_surf = welcome_text.render('Welcome to the Secrets of The Deep', False, 'Black')
 
 background_cutscene1_surf = pygame.transform.scale(
     pygame.image.load(os.path.join('images', 'ocean_background.png')), (WIDTH, HEIGHT))
@@ -15,7 +19,6 @@ clock2 = pygame.time.Clock()
 
 def draw_cutscene1(window):
     boat_width = -200
-
     while boat_width < WIDTH//2 - 250:
         clock2.tick(FPS)
 

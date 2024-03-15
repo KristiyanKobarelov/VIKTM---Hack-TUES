@@ -1,7 +1,3 @@
-import pygame
-from fish import *
-from hostile_fish import *
-from draw_function import *
 from collision import *
 from camera_movement import *
 from cutscene1 import *
