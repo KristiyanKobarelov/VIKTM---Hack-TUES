@@ -27,30 +27,29 @@ def special_fish_movement():
     for fish in special_fish_left:
         if calculate_radius_special_fish(fish):
             if fish.x > WIDTH / 2:
-                fish.x += 3
+                fish.x += 9
             else:
-                fish.x -= 3
+                fish.x -= 9
 
             if fish.y > HEIGHT / 2:
-                fish.y += 3
+                fish.y += 7
             else:
-                fish.y -= 3
+                fish.y -= 7
         fish.x += SPECIAL_FISH_VEL
         if fish.x > WIDTH:
             special_fish_left.remove(fish)
     for fish in special_fish_right:
         if calculate_radius_special_fish(fish):
             if fish.x > WIDTH / 2:
-                fish.x += 3
+                fish.x += 9
             else:
-                fish.x -= 3
+                fish.x -= 9
 
             if fish.y > HEIGHT / 2:
-                fish.y += 3
+                fish.y += 7
             else:
-                fish.y -= 3
+                fish.y -= 7
         fish.x += SPECIAL_FISH_VEL
-        fish.x -= SPECIAL_FISH_VEL
         if fish.x < -100:
             special_fish_right.remove(fish)
 
