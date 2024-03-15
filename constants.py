@@ -42,5 +42,6 @@ BOAT_VEL = 7
 PLAYER_WIDTH = 100
 PLAYER_HEIGHT = 40
 
-player_surf = pygame.Surface((100, 40))
-player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
+# player_surf = pygame.Surface((100, 40))
+# player_surf = pygame.transform.scale(pygame.image.load('Player/diver.webp').convert_alpha(), (100, 40))
+# player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))

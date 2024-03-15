@@ -6,7 +6,7 @@ player_x = WIDTH // 2
 player_y = HEIGHT // 2
 
 
-def detect_collision(player_health):
+def detect_collision(player_health, player_rect):
     ret = 1
 
     for fish in fishes_left:

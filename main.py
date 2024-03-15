@@ -14,8 +14,13 @@ pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
 
+player_surf = pygame.transform.scale(pygame.image.load('Player/diver.webp').convert_alpha(), (100, 40))
+player_rect = player_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
+
 
 def main():
+    player_look = 1
+
     fish_timer = 0
     hostile_fish_timer = 0
     special_fish_timer = 0
@@ -70,11 +75,11 @@ def main():
             special_fish_movement()
             unspecial_fish_movement()
 
-            depth_pixels = player_movement(depth_pixels)
+            depth_pixels, player_look = player_movement(depth_pixels, player_look)
 
-            player_health, game_active = detect_collision(player_health)
+            player_health, game_active = detect_collision(player_health, player_rect)
 
-            draw(WINDOW, player_health, round(depth_pixels/50))
+            draw(WINDOW, player_health, round(depth_pixels/50), player_surf, player_rect, player_look)
 
         elif game_active == 0:
             game_active = start_screen(WINDOW)

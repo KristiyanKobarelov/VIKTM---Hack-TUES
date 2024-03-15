@@ -1,9 +1,8 @@
-import pygame.transform
+from constants import *
 from animations import *
 from sys import exit
 from hostile_fish import *
 
-player_surf.fill('green')
 
 background_surf = pygame.Surface((WIDTH, HEIGHT))
 background_surf.fill(BACKGROUND_COLOR)
@@ -33,10 +32,13 @@ depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
 depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
 
 
-def draw(window, player_health, depth, temp_x=0):
+def draw(window, player_health, depth, player_surf, player_rect, player_look_left, temp_x=0):
     # Draw everything on screen
 
     window.blit(background_surf, (0, 0))
+
+    if player_look_left == 2:
+        player_surf = pygame.transform.flip(player_surf, 1, 0)
 
     window.blit(player_surf, player_rect)
 

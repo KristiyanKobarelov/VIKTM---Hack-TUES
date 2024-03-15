@@ -1,7 +1,7 @@
 from draw_function import *
 
 
-def player_movement(depth):
+def player_movement(depth, player_look):
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_UP] or keys[pygame.K_w]:
@@ -72,6 +72,8 @@ def player_movement(depth):
         for fish in unspecial_fish_right:
             fish.x += PLAYER_SPEED
 
+        player_look = 2
+
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         for fish in fishes_left:
             fish.x -= PLAYER_SPEED
@@ -92,5 +94,7 @@ def player_movement(depth):
             fish.x -= PLAYER_SPEED
         for fish in unspecial_fish_right:
             fish.x -= PLAYER_SPEED
+
+        player_look = 1
             
-    return depth
+    return depth, player_look
