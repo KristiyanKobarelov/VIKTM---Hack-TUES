@@ -74,6 +74,15 @@ def draw(window, player_health, temp_x=0):
         fish_surf = medusa_animations()
         window.blit(fish_surf, (fish.x, fish.y))
 
+    for fish in unspecial_fish_left:
+        fish_surf = pygame.Surface((fish.width, fish.height))
+        fish_surf.fill('yellow')
+        window.blit(fish_surf, (fish.x, fish.y))
+    for fish in unspecial_fish_right:
+        fish_surf = pygame.Surface((fish.width, fish.height))
+        fish_surf.fill('yellow')
+        window.blit(fish_surf, (fish.x, fish.y))
+
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
     WINDOW.blit(new_cursor, cursor_rect)
 
@@ -182,19 +191,22 @@ def controls_menu(window):
     window.blit(photo_text_surf, photo_text_rect)
 
     back_surf = pygame.Surface((200, 65))
-    back_rect = back_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 120))
+    back_rect = back_surf.get_rect(topleft=(WIDTH - 750,  HEIGHT - 120))
     back_surf.fill('white')
     window.blit(back_surf, back_rect)
 
-    backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH / 2, HEIGHT - 85))
+    backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH - 650, HEIGHT - 85))
     window.blit(backbutton_text_surf, backbutton_text_rect)
 
-    ret = 0
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    window.blit(new_cursor, cursor_rect)
+
+    ret_2 = 2
     mouse_pos = pygame.mouse.get_pos()
     if back_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
-            pass
+            ret_2 = 0
 
     pygame.display.update()
 
-    return ret
+    return ret_2

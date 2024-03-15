@@ -5,14 +5,13 @@ from cutscene2 import *
 from specialfish import *
 from fish import *
 from sys import exit
+from screenshot import *
 
 pygame.init()
 
 pygame.display.set_caption('Secrets of The Deep')
 
 clock = pygame.time.Clock()
-
-start_time = 0
 
 
 def main_gameplay():
@@ -22,18 +21,19 @@ def main_gameplay():
 
     add_fish = 500
     add_hostile_fish = 2000
-    add_special_fish = 5000
+    add_special_fish = 500
 
     player_health = 7
+
+    points = 0
 
     game_active = 0
     depth_pixels = 500  # 50 pixels = 1 meter
 
-    draw_cutscene1(WINDOW)
-    draw_cutscene2(WINDOW)
-
     while True:
         for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                points += capture_fish()
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
@@ -62,6 +62,8 @@ def main_gameplay():
 
             depth_pixels = player_movement(depth_pixels)
 
+            print(round(depth_pixels/50))
+
             player_health = detect_collision(player_health)
 
             draw(WINDOW, player_health)
@@ -74,4 +76,6 @@ def main_gameplay():
 
 
 if __name__ == '__main__':
+    draw_cutscene1(WINDOW)
+    draw_cutscene2(WINDOW)
     main_gameplay()
