@@ -81,7 +81,7 @@ def main():
             game_active = controls_menu(WINDOW)
 
         elif game_active == 3:
-            game_active = death_screen(WINDOW, 5, 10)
+            game_active = death_screen(WINDOW, round(depth_pixels/50), points)
 
         elif game_active >= 4:
             fishes_right.clear()
