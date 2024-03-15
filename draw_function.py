@@ -55,7 +55,7 @@ broken_heart_surf = pygame.transform.rotozoom(broken_heart_surf, 0, 0.3)
 
 new_cursor = pygame.image.load('Cursor/noun-viewfinder-92699.png').convert_alpha()
 new_cursor = pygame.transform.rotozoom(new_cursor, 0, 0.1)
-newer_cursor = pygame.image.load('Cursor/Cursor-2.png').convert_alpha()
+newer_cursor = pygame.image.load('Cursor/Cursor_2_blue.png').convert_alpha()
 newer_cursor = pygame.transform.rotozoom(newer_cursor, 0, 0.1)
 pygame.mouse.set_visible(False)
 
