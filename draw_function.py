@@ -31,6 +31,13 @@ depth_meter_2 = pygame.transform.rotozoom(depth_meter_2, 0, 0.15)
 depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
 depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
 
+blue_fish = pygame.image.load('Normal_fishes/fish_blue.webp').convert_alpha()
+blue_fish = pygame.transform.flip(blue_fish, 1, 0)
+blue_fish = pygame.transform.rotozoom(blue_fish, 0, 0.5)
+
+green_fish = pygame.image.load('Normal_fishes/fish_green.webp').convert_alpha()
+green_fish = pygame.transform.rotozoom(green_fish, 0, 0.5)
+
 
 def draw(window, player_health, depth, score, player_surf, player_rect, player_look_left, temp_x=0):
     # Draw everything on screen
@@ -45,11 +52,9 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     window.blit(text_surf, (5, 5))
 
     for fish in fishes_left:
-        fish_surf = pygame.Surface((fish.width, fish.height))
-        window.blit(fish_surf, (fish.x, fish.y))
+        window.blit(green_fish, (fish.x, fish.y))
     for fish in fishes_right:
-        fish_surf = pygame.Surface((fish.width, fish.height))
-        window.blit(fish_surf, (fish.x, fish.y))
+        window.blit(blue_fish, (fish.x, fish.y))
 
     for hostile_fish in hostile_fishes_left:
         hostile_fish_surf = shark_animations()
@@ -96,17 +101,17 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
 
     if player_health < 1:
         window.blit(broken_heart_surf, (70, -45))
-    elif player_health < 2:
+    if player_health < 2:
         window.blit(broken_heart_surf, (85, -45))
-    elif player_health < 3:
+    if player_health < 3:
         window.blit(broken_heart_surf, (100, -45))
-    elif player_health < 4:
+    if player_health < 4:
         window.blit(broken_heart_surf, (115, -45))
-    elif player_health < 5:
+    if player_health < 5:
         window.blit(broken_heart_surf, (130, -45))
-    elif player_health < 6:
+    if player_health < 6:
         window.blit(broken_heart_surf, (145, -45))
-    elif player_health < 7:
+    if player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
     # depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
