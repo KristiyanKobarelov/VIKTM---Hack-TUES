@@ -34,14 +34,14 @@ def detect_collision(player_health):
 
     for hostile_fish in hostile_fishes_left:
         if player_rect.colliderect(hostile_fish):
-            player_health -= 1
+            player_health -= 2
             hostile_fishes_left.remove(hostile_fish)
             if player_health <= 0:
                 exit()
 
     for hostile_fish in hostile_fishes_right:
         if player_rect.colliderect(hostile_fish):
-            player_health -= 1
+            player_health -= 2
             hostile_fishes_right.remove(hostile_fish)
             if player_health <= 0:
                 exit()
