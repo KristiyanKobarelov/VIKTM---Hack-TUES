@@ -84,12 +84,10 @@ def draw(window, player_health, temp_x=0):
         window.blit(fish_surf, (fish.x, fish.y))
 
     for fish in unspecial_fish_left:
-        fish_surf = pygame.Surface((fish.width, fish.height))
-        fish_surf.fill('yellow')
+        fish_surf = medusa_animations()
         window.blit(fish_surf, (fish.x, fish.y))
     for fish in unspecial_fish_right:
-        fish_surf = pygame.Surface((fish.width, fish.height))
-        fish_surf.fill('yellow')
+        fish_surf = medusa_animations()
         window.blit(fish_surf, (fish.x, fish.y))
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
