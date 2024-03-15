@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+import pygame.transform
+from sys import exit
+import pygame
+>>>>>>> Stashed changes
 from fish import *
 from hostile_fish import *
 
@@ -12,6 +18,18 @@ text_surf = text_font.render('Health: ', False, 'Black')
 
 start_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
 start_text_surf = start_text.render('START', False, 'Black')
+
+controls_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+controls_text_surf = controls_text.render('Controls:', False, 'Black')
+
+moving_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+moving_text_surf = moving_text.render('Moving - WASD or Arrow keys', False, 'Black')
+
+cntrbutoton_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
+cntrbutton_text_surf = cntrbutoton_text.render('Controls', False, 'Black')
+
+quitbutton_text = pygame.font.Font('Font/Pixeltype.ttf', 75)
+quitbutton_text_surf = quitbutton_text.render('Quit', False, 'Black')
 
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
@@ -99,17 +117,40 @@ def draw(window, player_health, temp_x=0):
 def start_screen(window):
     start_surf = pygame.Surface((200, 60))
 
+    control_surf = pygame.Surface((200, 65))
+    control_rect = control_surf.get_rect(topleft = (WIDTH / 2 - 200 / 2, HEIGHT - 240))
+    control_surf.fill('white')
+
+    quit_surf = pygame.Surface((200, 65))
+    quit_rect = quit_surf.get_rect(topleft = (WIDTH / 2 - 200 / 2, HEIGHT - 130))
+    quit_surf.fill('white')
+
     start_surf.fill('white')
-    start_rect = start_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 360))
+    start_rect = start_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 340))
 
     start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
     start_screen_surf.fill(BACKGROUND_COLOR)
 
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
+    window.blit(control_surf, control_rect)
+    window.blit(quit_surf, quit_rect)
 
+<<<<<<< Updated upstream
     start_text_rect = start_text_surf.get_rect(topleft=(WIDTH / 2 - 65, HEIGHT - 347))
+=======
+    start_text_rect = start_text_surf.get_rect(topleft=(WIDTH/2 - 65, HEIGHT - 327))
+>>>>>>> Stashed changes
     window.blit(start_text_surf, start_text_rect)
+
+    quitbutton_text_rect = quitbutton_text_surf.get_rect(topleft = (WIDTH/2 - 42, HEIGHT - 115))
+    window.blit(quitbutton_text_surf,quitbutton_text_rect)
+
+    cntrbutoton_text_rect = cntrbutton_text_surf.get_rect(topleft = (WIDTH/2 - 82, HEIGHT - 225))
+    window.blit(cntrbutton_text_surf, cntrbutoton_text_rect)
+
+    cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
+    WINDOW.blit(new_cursor, cursor_rect)
 
     pygame.display.update()
 
@@ -117,3 +158,22 @@ def start_screen(window):
     if start_rect.collidepoint(mouse_pos):
         if pygame.mouse.get_pressed()[0]:
             return True
+<<<<<<< Updated upstream
+=======
+
+    if control_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            return True
+
+    if quit_rect.collidepoint(mouse_pos):
+        if pygame.mouse.get_pressed()[0]:
+            pygame.quit()
+            exit()
+
+def controls_menu(window):
+    controls_text_rect = controls_text_surf.get_rect(center = (WIDTH/2, HEIGHT - 200))
+    window.blit(controls_text_surf, controls_text_rect)
+
+    moving_text_rect = moving_text_surf.get_rect(center = (WIDTH/2, HEIGHT - 150))
+    window.blit(moving_text_surf, moving_text_rect)
+>>>>>>> Stashed changes
