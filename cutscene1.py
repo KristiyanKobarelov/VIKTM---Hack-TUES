@@ -28,8 +28,7 @@ def redraw_window(window):
 
 
 def fade(window):
-    screen_fade = pygame.Surface((WIDTH, HEIGHT))
-    screen_fade.fill(BACKGROUND_COLOR)
+    screen_fade = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
     for alpha in range(0, 300):
         screen_fade.set_alpha(alpha)
         redraw_window(window)
@@ -78,7 +77,7 @@ def draw_cutscene1(window):
             window.blit(pygame.transform.flip(player_cutscene_up_surf, 0, 1), (player_x, player_y))
 
         if player_y > HEIGHT + 150:
-            window.blit(welcome_surf, (35, 120))
+            window.blit(welcome_surf, (WIDTH/2 - 360, HEIGHT/2 - 200))
 
         pygame.display.update()
 

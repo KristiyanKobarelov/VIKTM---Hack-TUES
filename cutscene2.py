@@ -3,8 +3,8 @@ pygame.init()
 
 clock3 = pygame.time.Clock()
 
-background_surf = pygame.Surface((WIDTH, HEIGHT))
-background_surf.fill(BACKGROUND_COLOR)
+background_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
+background_surf = pygame.transform.rotozoom(background_surf, 0, 0.8)
 
 player_surf = pygame.image.load('Player/vodolaz1.webp').convert_alpha()
 player_surf = pygame.transform.rotozoom(player_surf, 0, 0.8)

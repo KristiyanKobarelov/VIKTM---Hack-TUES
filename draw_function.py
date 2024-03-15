@@ -24,13 +24,13 @@ newer_cursor = pygame.transform.rotozoom(newer_cursor, 0, 0.1)
 pygame.mouse.set_visible(False)
 
 depth_meter_1 = pygame.image.load('Depth/meter_counter-1.webp').convert_alpha()
-depth_meter_1 = pygame.transform.rotozoom(depth_meter_1, 0, 0.15)
+depth_meter_1 = pygame.transform.rotozoom(depth_meter_1, 0, 0.3)
 
 depth_meter_2 = pygame.image.load('Depth/meter_counter-2.webp').convert_alpha()
-depth_meter_2 = pygame.transform.rotozoom(depth_meter_2, 0, 0.15)
+depth_meter_2 = pygame.transform.rotozoom(depth_meter_2, 0, 0.3)
 
 depth_meter_3 = pygame.image.load('Depth/meter_counter-3.webp').convert_alpha()
-depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.15)
+depth_meter_3 = pygame.transform.rotozoom(depth_meter_3, 0, 0.3)
 
 blue_fish = pygame.transform.scale(
     pygame.image.load('Normal_fishes/fish_blue.png').convert_alpha(), (3*FISH_WIDTH, 3*FISH_HEIGHT))
@@ -163,8 +163,7 @@ def start_screen(window):
     start_surf.fill('white')
     start_rect = start_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4))
 
-    start_screen_surf = pygame.Surface((WIDTH, HEIGHT))
-    start_screen_surf.fill(BACKGROUND_COLOR)
+    start_screen_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
 
     window.blit(start_screen_surf, (0, 0))
     window.blit(start_surf, start_rect)
