@@ -48,6 +48,9 @@ endscore_text_surf = endscore_text.render('Score:', False, BACKGROUND_COLOR)
 endmeters_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
 endmeters_text_surf = endmeters_text.render('Meters:', False, BACKGROUND_COLOR)
 
+jellyfish_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
+jellyfish_text_surf = jellyfish_text.render('(Jellyfish)', False, 'black')
+
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
 broken_heart_surf = pygame.image.load('Hearts/broken heart.png').convert_alpha()
@@ -220,6 +223,9 @@ def controls_menu(window):
     controls_text_rect = controls_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 350))
     window.blit(controls_text_surf, controls_text_rect)
 
+    jellyfish_text_rect = jellyfish_text_surf.get_rect(topleft = (WIDTH - 350, HEIGHT - 150))
+    window.blit(jellyfish_text_surf, jellyfish_text_rect)
+
     moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT - 250))
     window.blit(moving_text_surf, moving_text_rect)
 
@@ -254,7 +260,7 @@ def death_screen(window, depth, score):
     window.blit(background_surf_2, (0, 0))
 
     depth_text = pygame.font.Font('Font/Pixeltype.ttf', 60)
-    depth_text_surf = depth_text.render(f'{depth}', False, BACKGROUND_COLOR)
+    depth_text_surf = depth_text.render(f'{depth} m', False, BACKGROUND_COLOR)
     depth_text_rect = depth_text_surf.get_rect(midleft = (WIDTH - 390, HEIGHT - 112))
     window.blit(depth_text_surf, depth_text_rect)
 
