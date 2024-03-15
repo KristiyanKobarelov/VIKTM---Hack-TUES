@@ -219,7 +219,7 @@ def controls_menu(window):
 
     # jellyfish_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
     # jellyfish_text_surf = jellyfish_text.render('(Jellyfish)', False, 'black')
-    jellyfish_text_surf = text_font.render('(Jellyfish)', False, 'black')
+    jellyfish_text_surf = text_font.render('(Take photos of yellow Jellyfish)', False, 'black')
 
     # photo_text = pygame.font.Font('Font/Pixeltype.ttf', 65)
     # photo_text_surf = photo_text.render('Taking photos - Left Mouse Button Click', False, 'Black')
@@ -232,13 +232,13 @@ def controls_menu(window):
     controls_text_rect = controls_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4 - HEIGHT/8))
     window.blit(controls_text_surf, controls_text_rect)
 
-    jellyfish_text_rect = jellyfish_text_surf.get_rect(center=(WIDTH/2 + WIDTH/4, HEIGHT/2 + HEIGHT/4 + HEIGHT/8))
+    jellyfish_text_rect = jellyfish_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 + HEIGHT/8 - HEIGHT/16))
     window.blit(jellyfish_text_surf, jellyfish_text_rect)
 
     moving_text_rect = moving_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 - HEIGHT/4 + HEIGHT/8))
     window.blit(moving_text_surf, moving_text_rect)
 
-    photo_text_rect = photo_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2 + HEIGHT/4 - HEIGHT/8))
+    photo_text_rect = photo_text_surf.get_rect(center=(WIDTH/2, HEIGHT/2))
     window.blit(photo_text_surf, photo_text_rect)
 
     back_surf = pygame.Surface((200, 65))
