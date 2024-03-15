@@ -96,17 +96,17 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
 
     if player_health < 1:
         window.blit(broken_heart_surf, (70, -45))
-    elif player_health < 2:
+    if player_health < 2:
         window.blit(broken_heart_surf, (85, -45))
-    elif player_health < 3:
+    if player_health < 3:
         window.blit(broken_heart_surf, (100, -45))
-    elif player_health < 4:
+    if player_health < 4:
         window.blit(broken_heart_surf, (115, -45))
-    elif player_health < 5:
+    if player_health < 5:
         window.blit(broken_heart_surf, (130, -45))
-    elif player_health < 6:
+    if player_health < 6:
         window.blit(broken_heart_surf, (145, -45))
-    elif player_health < 7:
+    if player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
     # depth_text = pygame.font.Font('Font/Pixeltype.ttf', 35)
