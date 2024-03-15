@@ -54,11 +54,12 @@ def special_fish_movement():
         if fish.x < -100:
             special_fish_right.remove(fish)
 
+
 def calculate_radius_special_fish(special_fish):
     x = abs(special_fish.x - WIDTH/2)
     y = abs(special_fish.y - HEIGHT/2)
     r = math.sqrt(x*x + y*y)
-    if r <= SECIAL_FISH_RADIUS:
+    if r <= SPECIAL_FISH_RADIUS:
         return True
     else:
         return False
