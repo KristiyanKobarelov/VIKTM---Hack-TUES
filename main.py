@@ -6,6 +6,7 @@ from specialfish import *
 from fish import *
 from sys import exit
 from screenshot import *
+from unspecial_fish import *
 
 pygame.init()
 
@@ -67,6 +68,7 @@ def main():
             fish_movement()
             hostile_fish_movement()
             special_fish_movement()
+            unspecial_fish_movement()
 
             depth_pixels = player_movement(depth_pixels)
 
