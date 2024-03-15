@@ -96,7 +96,7 @@ def draw(window, player_health, temp_x=0):
     WINDOW.blit(new_cursor, cursor_rect)
 
     for i in range(player_health):
-        if i == 0:
+        if i <= 0:
             temp_x = 90
         elif i == 1:
             temp_x = 105
@@ -115,17 +115,17 @@ def draw(window, player_health, temp_x=0):
 
     if player_health < 1:
         window.blit(broken_heart_surf, (70, -45))
-    if player_health < 2:
+    elif player_health < 2:
         window.blit(broken_heart_surf, (85, -45))
-    if player_health < 3:
+    elif player_health < 3:
         window.blit(broken_heart_surf, (100, -45))
-    if player_health < 4:
+    elif player_health < 4:
         window.blit(broken_heart_surf, (115, -45))
-    if player_health < 5:
+    elif player_health < 5:
         window.blit(broken_heart_surf, (130, -45))
-    if player_health < 6:
+    elif player_health < 6:
         window.blit(broken_heart_surf, (145, -45))
-    if player_health < 7:
+    elif player_health < 7:
         window.blit(broken_heart_surf, (160, -45))
 
     pygame.display.update()
@@ -224,7 +224,7 @@ def controls_menu(window):
 def death_screen(window):
     background_surf_2 = pygame.surface.Surface((800, 400))
     background_surf_2.fill('black')
-    window.blit(background_surf, (0, 0))
+    window.blit(background_surf_2, (0, 0))
 
     menubutton_surf = pygame.Surface((150, 60))
     menubutton_surf.fill('White')

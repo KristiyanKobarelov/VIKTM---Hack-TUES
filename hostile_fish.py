@@ -56,7 +56,7 @@ def hostile_fish_movement():
             elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
                 hostile_fishes_left.remove(hostile_fish)
 
-        if hostile_fish.x >= WIDTH//2:
+        if hostile_fish.x > WIDTH//2 and hostile_fish:
             hostile_fishes_right.append(hostile_fish)
             hostile_fishes_left.remove(hostile_fish)
 
@@ -78,6 +78,6 @@ def hostile_fish_movement():
             elif hostile_fish.y < -100 or hostile_fish.y > HEIGHT + 100:
                 hostile_fishes_right.remove(hostile_fish)
 
-        if hostile_fish.x <= WIDTH//2:
+        if hostile_fish.x < WIDTH//2 and hostile_fish:
             hostile_fishes_left.append(hostile_fish)
             hostile_fishes_right.remove(hostile_fish)

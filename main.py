@@ -80,9 +80,6 @@ def main_gameplay():
         elif game_active == 4:
             return 0
 
-        else:
-            return 1
-
 
 if __name__ == '__main__':
     # draw_cutscene1(WINDOW)
