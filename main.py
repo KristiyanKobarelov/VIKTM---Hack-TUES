@@ -1,6 +1,7 @@
 from collision import *
 from camera_movement import *
 from cutscene1 import *
+from cutscene2 import *
 from specialfish import *
 from sys import exit
 
@@ -24,10 +25,11 @@ def main_gameplay():
 
     player_health = 7
 
-    game_active = False
+    game_active = 0
     depth_pixels = 500  # 50 pixels = 1 meter
 
     draw_cutscene1(WINDOW)
+    draw_cutscene2(WINDOW)
 
     while True:
         for event in pygame.event.get():
@@ -35,7 +37,7 @@ def main_gameplay():
                 pygame.quit()
                 exit()
 
-        if game_active:
+        if game_active == 1:
             h = clock.tick(FPS)
             fish_timer += h
             hostile_fish_timer += h
@@ -63,8 +65,11 @@ def main_gameplay():
 
             draw(WINDOW, player_health)
 
-        else:
+        elif game_active == 0:
             game_active = start_screen(WINDOW)
+
+        elif game_active == 2:
+            game_active = controls_menu(WINDOW)
 
 
 if __name__ == '__main__':
