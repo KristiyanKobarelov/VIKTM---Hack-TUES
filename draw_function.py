@@ -209,11 +209,11 @@ def controls_menu(window):
     window.blit(photo_text_surf, photo_text_rect)
 
     back_surf = pygame.Surface((200, 65))
-    back_rect = back_surf.get_rect(topleft=(WIDTH / 2 - 200 / 2, HEIGHT - 120))
+    back_rect = back_surf.get_rect(topleft=(WIDTH - 750,  HEIGHT - 120))
     back_surf.fill('white')
     window.blit(back_surf, back_rect)
 
-    backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH / 2, HEIGHT - 85))
+    backbutton_text_rect = backbutton_text_surf.get_rect(center = (WIDTH - 650, HEIGHT - 85))
     window.blit(backbutton_text_surf, backbutton_text_rect)
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
