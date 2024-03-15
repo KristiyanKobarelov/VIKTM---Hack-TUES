@@ -8,6 +8,7 @@ pygame.init()
 
 welcome_text = pygame.font.Font('Font/PixelScriptRegular-4B83W.ttf', 75)
 welcome_surf = welcome_text.render('Secrets of The Deep', False, 'Black')
+welcome_rect = welcome_surf.get_rect(bottomleft=(WIDTH/2 - WIDTH/4, HEIGHT/2))
 
 background_cutscene1_surf = pygame.transform.scale(
     pygame.image.load(os.path.join('images', 'ocean_background.png')), (WIDTH, HEIGHT))
@@ -77,7 +78,7 @@ def draw_cutscene1(window):
             window.blit(pygame.transform.flip(player_cutscene_up_surf, 0, 1), (player_x, player_y))
 
         if player_y > HEIGHT + 150:
-            window.blit(welcome_surf, (WIDTH/2 - 360, HEIGHT/2 - 200))
+            window.blit(welcome_surf, welcome_rect)
 
         pygame.display.update()
 
