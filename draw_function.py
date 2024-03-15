@@ -23,6 +23,9 @@ newer_cursor = pygame.image.load('Cursor/Cursor_2_blue.png').convert_alpha()
 newer_cursor = pygame.transform.rotozoom(newer_cursor, 0, 0.1)
 pygame.mouse.set_visible(False)
 
+depth_text = text_font.render('You want to go deeper to find the GOLDEN FISH', False, 'White')
+depth_text_rect = depth_text.get_rect(center=(WIDTH/2, HEIGHT - 30))
+
 depth_meter_1 = pygame.image.load('Depth/meter_counter-1.webp').convert_alpha()
 depth_meter_1 = pygame.transform.rotozoom(depth_meter_1, 0, 0.15)
 
@@ -80,6 +83,9 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     for fish in unspecial_fish_right:
         fish_surf = medusa_animations()
         window.blit(fish_surf, (fish.x, fish.y))
+
+    if depth == 10:
+        window.blit(depth_text, depth_text_rect)
 
     cursor_rect = new_cursor.get_rect(center=pygame.mouse.get_pos())
     WINDOW.blit(new_cursor, cursor_rect)
