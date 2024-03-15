@@ -4,8 +4,6 @@ from draw_function import *
 def player_movement(depth):
     keys = pygame.key.get_pressed()
 
-    print(depth)
-
     if keys[pygame.K_UP] or keys[pygame.K_w]:
         for fish in fishes_left:
             fish.y += PLAYER_SPEED

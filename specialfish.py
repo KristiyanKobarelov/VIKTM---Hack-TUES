@@ -3,6 +3,7 @@ import random
 from constants import *
 import math
 
+
 def special_fish_generator():
     fish_y = random.randint(0, 4*HEIGHT)
 
@@ -15,6 +16,7 @@ def special_fish_generator():
         fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
         special_fish_left.append(fish)
 
+<<<<<<< Updated upstream
 
     else:
         fish_x = random.randint(WIDTH, WIDTH+100)
@@ -22,6 +24,15 @@ def special_fish_generator():
         fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
         special_fish_right.append(fish)
     
+=======
+        else:
+            fish_x = random.randint(WIDTH, WIDTH+100)
+            size = random.uniform(1,2)
+            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
+            special_fish_right.append(fish)
+
+
+>>>>>>> Stashed changes
 def special_fish_movement():
     for fish in special_fish_left:
         if calculate_radius(fish):

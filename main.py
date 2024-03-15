@@ -15,9 +15,15 @@ start_time = 0
 
 def main_gameplay():
     fish_timer = 0
-    hostile_timer = 0
-    player_health = 7
+    hostile_fish_timer = 0
+    special_fish_timer = 0
+
     add_fish = 500
+    add_hostile_fish = 2000
+    add_special_fish = 5000
+
+    player_health = 7
+
     game_active = False
     depth_pixels = 500  # 50 pixels = 1 meter
 
@@ -30,27 +36,28 @@ def main_gameplay():
                 exit()
 
         if game_active:
-            fish_timer += clock.tick(FPS)
+            h = clock.tick(FPS)
+            fish_timer += h
+            hostile_fish_timer += h
+            special_fish_timer += h
 
-            hostile_timer += 1
-            if game_active:
-                if fish_timer > add_fish:
-                    fish_generator()
-                    special_fish_generator()
+            if fish_timer > add_fish:
+                fish_generator()
+                fish_timer = 0
 
-                    fish_timer = 0
-                if hostile_timer > add_fish:
-                    hostile_fish_generator()
+            if hostile_fish_timer > add_hostile_fish:
+                hostile_fish_generator()
+                hostile_fish_timer = 0
 
-                    hostile_timer = 0
+            if special_fish_timer > add_special_fish:
+                special_fish_generator()
+                special_fish_timer = 0
 
             fish_movement()
-
+            hostile_fish_movement()
             special_fish_movement()
 
             depth_pixels = player_movement(depth_pixels)
-
-            hostile_fish_movement()
 
             player_health = detect_collision(player_health)
 
