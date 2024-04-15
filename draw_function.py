@@ -44,17 +44,20 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     # Draw everything on screen
 
     background_color = BACKGROUND_COLOR
+    if depth < 30:
+        background_color = [RED, GREEN, BLUE]
+
     background_surf_draw = pygame.Surface((WIDTH, HEIGHT))
     background_surf_draw.fill(background_color)
 
     key = pygame.key.get_pressed()
 
-    if key[pygame.K_UP] or key[pygame.K_w]:
+    if key[pygame.K_UP] or key[pygame.K_w] and depth >= 30:
         background_color[0] += 0.0125
         background_color[1] += 0.0125
         background_color[2] += 0.0125
 
-    if key[pygame.K_DOWN] or key[pygame.K_s]:
+    if key[pygame.K_DOWN] or key[pygame.K_s] and depth >= 30:
         background_color[0] -= 0.0125
         background_color[1] -= 0.0125
         background_color[2] -= 0.0125

@@ -7,6 +7,10 @@ WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 
 BACKGROUND_COLOR = [96, 126, 181]
 
+RED = 96
+GREEN = 126
+BLUE = 181
+
 FPS = 60
 
 PLAYER_SPEED = 7
