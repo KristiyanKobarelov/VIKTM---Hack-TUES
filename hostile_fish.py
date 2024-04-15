@@ -7,14 +7,14 @@ player_y = HEIGHT // 2
 
 
 def hostile_fish_generator():
-    for i in range(0, 3):
-        hostile_fish_y = random.randint(0, 4*HEIGHT)
+    for i in range(0, 1):
+        hostile_fish_y = random.randint(-50, 2*HEIGHT)
 
         side = random.randint(1, 2)
         # 1 is left, 2 is right
 
         if side == 1:
-            hostile_fish_x = random.randint(-100, 0)
+            hostile_fish_x = random.randint(-200, -100)
             size = random.uniform(1, 2)
             hostile_fish = pygame.Rect(hostile_fish_x, hostile_fish_y, HOSTILE_WIDTH * size, HOSTILE_HEIGHT * size)
             hostile_fishes_left.append(hostile_fish)
