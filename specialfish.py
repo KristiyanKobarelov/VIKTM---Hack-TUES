@@ -10,7 +10,7 @@ def special_fish_generator():
     # 1 is left, 2 is right
 
     if side == 1:
-        fish_x = random.randint(-100, 0)
+        fish_x = random.randint(-SPECIAL_FISH_WIDTH - 100, -SPECIAL_FISH_WIDTH)
         fish = pygame.Rect(fish_x, fish_y, SPECIAL_FISH_WIDTH, SPECIAL_FISH_HEIGHT)
         special_fish_left.append(fish)
 
@@ -23,21 +23,21 @@ def special_fish_generator():
 def special_fish_movement():
     for fish in special_fish_left:
         if calculate_radius_special_fish(fish):
-            fish.x += 2
+            fish.x += SPECIAL_VEL_PLAYER_SPOTTED
             if fish.y > HEIGHT / 2:
-                fish.y += 5
+                fish.y += SPECIAL_VEL_PLAYER_SPOTTED
             else:
-                fish.y -= 5
+                fish.y -= SPECIAL_VEL_PLAYER_SPOTTED
         fish.x += SPECIAL_FISH_VEL
         if fish.x > WIDTH + 50:
             special_fish_left.remove(fish)
     for fish in special_fish_right:
         if calculate_radius_special_fish(fish):
-            fish.x -= 2
+            fish.x -= SPECIAL_VEL_PLAYER_SPOTTED
             if fish.y > HEIGHT / 2:
-                fish.y += 5
+                fish.y += SPECIAL_VEL_PLAYER_SPOTTED
             else:
-                fish.y -= 5
+                fish.y -= SPECIAL_VEL_PLAYER_SPOTTED
         fish.x += SPECIAL_FISH_VEL
         if fish.x < -50:
             special_fish_right.remove(fish)

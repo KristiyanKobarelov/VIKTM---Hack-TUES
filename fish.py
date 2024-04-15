@@ -10,14 +10,12 @@ def fish_generator():
         # 1 is left, 2 is right
 
         if side == 1:
-            fish_x = random.randint(-100, 0)
-            size = random.randint(1, 3)
-            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
+            fish_x = random.randint(-FISH_WIDTH-100, -FISH_WIDTH)
+            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH, FISH_HEIGHT)
             fishes_left.append(fish)
         else:
             fish_x = random.randint(WIDTH, WIDTH+100)
-            size = random.uniform(1, 2)
-            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH * size, FISH_HEIGHT * size)
+            fish = pygame.Rect(fish_x, fish_y, FISH_WIDTH, FISH_HEIGHT)
             fishes_right.append(fish)
 
 
