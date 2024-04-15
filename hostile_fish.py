@@ -14,15 +14,13 @@ def hostile_fish_generator():
         # 1 is left, 2 is right
 
         if side == 1:
-            hostile_fish_x = random.randint(-200, -100)
-            size = random.uniform(1, 2)
-            hostile_fish = pygame.Rect(hostile_fish_x, hostile_fish_y, HOSTILE_WIDTH * size, HOSTILE_HEIGHT * size)
+            hostile_fish_x = random.randint(-250, -150)
+            hostile_fish = pygame.Rect(hostile_fish_x, hostile_fish_y, HOSTILE_WIDTH, HOSTILE_HEIGHT)
             hostile_fishes_left.append(hostile_fish)
 
         else:
             hostile_fish_x = random.randint(WIDTH, WIDTH + 100)
-            size = random.uniform(1, 2)
-            hostile_fish = pygame.Rect(hostile_fish_x, hostile_fish_y, HOSTILE_WIDTH * size, HOSTILE_HEIGHT * size)
+            hostile_fish = pygame.Rect(hostile_fish_x, hostile_fish_y, HOSTILE_WIDTH, HOSTILE_HEIGHT)
             hostile_fishes_right.append(hostile_fish)
 
 
