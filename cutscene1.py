@@ -1,4 +1,7 @@
 import os
+
+import pygame
+
 from constants import *
 
 welcome_text = pygame.font.Font('Font/PixelScriptRegular-4B83W.ttf', 75)
@@ -16,16 +19,16 @@ player_cutscene_down_surf = pygame.transform.rotozoom(player_cutscene_down_surf,
 player_cutscene_up_surf = pygame.image.load('Player/vodolaz1.webp').convert_alpha()
 player_cutscene_up_surf = pygame.transform.rotozoom(player_cutscene_up_surf, 0, 0.6)
 
-screen_fade = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
-screen_fade = pygame.transform.rotozoom(screen_fade, 0, 0.8)
+screen_fade = pygame.Surface((WIDTH, HEIGHT))
+screen_fade.fill(BACKGROUND_COLOR)
 
 clock2 = pygame.time.Clock()
 
 
 def fade(window):
     for alpha in range(0, 300):
-        screen_fade.set_alpha(alpha)
         window.fill((255, 255, 255))
+        screen_fade.set_alpha(alpha)
         window.blit(screen_fade, (0, 0))
         pygame.display.update()
         pygame.time.delay(5)

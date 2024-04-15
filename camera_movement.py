@@ -26,7 +26,7 @@ def player_movement(depth, player_look):
             for fish in unspecial_fish_right:
                 fish.y += PLAYER_SPEED
 
-            depth -= 1
+            depth -= 3
 
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         for fish in fishes_left:
@@ -49,7 +49,7 @@ def player_movement(depth, player_look):
         for fish in unspecial_fish_right:
             fish.y -= PLAYER_SPEED
 
-        depth += 1
+        depth += 3
 
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
         for fish in fishes_left:

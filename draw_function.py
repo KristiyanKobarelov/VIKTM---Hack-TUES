@@ -1,11 +1,11 @@
 from animations import *
 from sys import exit
 
-background_surf = pygame.image.load('Background/Underwater BG Blank.png').convert_alpha()
-background_surf = pygame.transform.rotozoom(background_surf, 0, 0.8)
+background_surf = pygame.Surface((WIDTH, HEIGHT))
+background_surf.fill(BACKGROUND_COLOR)
 
 text_font = pygame.font.Font('Font/Pixeltype.ttf', 50)
-text_surf = text_font.render('Health: ', False, 'Black')
+text_surf = text_font.render('Health: ', False, 'White')
 
 max_heart_surf = pygame.image.load('Hearts/7 hearts.png').convert_alpha()
 max_heart_surf = pygame.transform.rotozoom(max_heart_surf, 0, 0.3)
@@ -43,7 +43,30 @@ green_fish = pygame.transform.rotozoom(green_fish, 0, 0.5)
 def draw(window, player_health, depth, score, player_surf, player_rect, player_look_left, temp_x=0):
     # Draw everything on screen
 
-    window.blit(background_surf, (0, 0))
+    background_color = BACKGROUND_COLOR
+    background_surf_draw = pygame.Surface((WIDTH, HEIGHT))
+    background_surf_draw.fill(background_color)
+
+    key = pygame.key.get_pressed()
+
+    if key[pygame.K_UP] or key[pygame.K_w]:
+        background_color[0] += 0.0125
+        background_color[1] += 0.0125
+        background_color[2] += 0.0125
+
+    if key[pygame.K_DOWN] or key[pygame.K_s]:
+        background_color[0] -= 0.0125
+        background_color[1] -= 0.0125
+        background_color[2] -= 0.0125
+
+    if background_color[0] <= 0.5:
+        background_color[0] = 0
+    if background_color[1] <= 0.5:
+        background_color[1] = 0
+    if background_color[2] <= 0.5:
+        background_color[2] = 0
+
+    window.blit(background_surf_draw, (0, 0))
 
     # pygame.draw.circle(window, 'red', (WIDTH/2, HEIGHT/2), HOSTILE_RADIUS, 5)
     # pygame.draw.circle(window, 'red', (WIDTH / 2, HEIGHT / 2), SPECIAL_FISH_RADIUS, 5)
@@ -126,7 +149,7 @@ def draw(window, player_health, depth, score, player_surf, player_rect, player_l
     depth_text_surf = text_font.render(f'{depth}', 0, 'White')
     depth_rect = depth_text_surf.get_rect(midleft=(50, HEIGHT - 27))
 
-    score_text_surf = text_font.render(f'Score: {score}', 0, 'Black')
+    score_text_surf = text_font.render(f'Score: {score}', 0, 'White')
     score_rect = score_text_surf.get_rect(midright=(WIDTH - 10, 25))
     window.blit(score_text_surf, score_rect)
 
